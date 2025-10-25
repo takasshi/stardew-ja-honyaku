@@ -1,0 +1,54 @@
+slug: bear-family
+title: "Bear Family 翻訳ファイル"
+category: "expansion"
+status: "active"
+
+original_name: "Bear Family"
+
+mod_ver: "1.4.2"
+release_date: "2025-10-13"
+
+source:
+  - name: 
+
+links:
+    url: "https://www.nexusmods.com/stardewvalley/mods/000"
+
+summary: |
+  East Scarp に住むベアー家族の日本語翻訳ファイルです。イベントや会話の雰囲気を尊重しつつ、用語統一を実施しています。
+note: "この翻訳は公式ローカライズ規則に準拠しています。ゲーム内の言語を日本語に設定してください。"
+
+description: |
+  家族それぞれの口調・性格に合わせた自然な日本語訳を目指しています。将来的なアップデートでも破綻しにくい文体・用語統一を採用。
+
+hero:
+  image: "https://placehold.jp/1200x315.png"
+  caption: "Bear Family のイメージ"
+
+features:
+  - "家族イベント・日常会話を丁寧にローカライズ。"
+  - "公式訳に準拠した用語統一。"
+  - "i18n対応で将来的な差分追従が容易。"
+
+install-warning: |
+  この翻訳は MOD 本体 (Bear Family) のほかに、**Content Patcher** の導入が推奨されます。  
+  必要に応じて前提MODを確認し、正しいフォルダ構成で適用してください。
+
+policy: |
+  - 固有名詞は公式翻訳に準拠  
+  - 会話文は自然な日本語になるよう意訳
+
+install-notes: |
+  ファイルは `[Bear Family]/i18n/` に配置してください。
+
+changelog:
+  - version: "v2.1.0"
+    date: "2025-10-13"
+    body: |
+      - 翻訳を公開。
+      - イベント・会話の用語統一を実施。
+      - 文体・用語の表記ゆれを調整。
+  - version: "v1.0.0"
+    date: "2025-10-13"
+    body: |
+      - 初回リリース。

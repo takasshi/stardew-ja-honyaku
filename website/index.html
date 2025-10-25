@@ -1,0 +1,90 @@
+---
+layout: default
+title: stardew-ja-honyaku
+---
+
+<div class="welcome-block">
+  <p class="welcome-title">🌾このサイトについて🌾</p>
+  <p>Stardew Valley に関する個人制作の翻訳MODを公開しています。<br>
+    趣味の延長で制作しており、英語の勉強をかねつつ、登場人物の雰囲気や言葉のニュアンスを大事にしながら訳しています。専門用語やスラングの理解には、AIツールや辞書サイトなども活用しています📚<br>
+    初学者なため、誤訳や不自然な文章もあります…。どうかご理解いただけると幸いです。<br>翻訳ファイルは自己責任でご利用ください。</p>
+  <p><strong>各MODの個別ページでは、翻訳内容のほかに、元MODの雰囲気や見どころも紹介しています🙌</strong></p>
+  <hr class="welcome-hr">
+  <p class="welcome-small-text">This site shares fan-made Japanese translation MODs for the popular game "Stardew
+    Valley". Here, you can find translations that let you enjoy overseas MODs in Japanese!</p>
+</div>
+
+<section id="download" class="section-block">
+  <h2>ダウンロードリンク</h2>
+  {% include mod-list.html %}
+</section>
+
+<section id="how-to" class="section-block">
+  <h2>導入方法 🛠️</h2>
+  <p class="description">翻訳ファイルを指定のフォルダに配置するだけで導入できます。以下の手順に沿って進めてください。</p>
+  <ol class="step-list">
+    <li>
+      <h4>手順 1：JSONファイルのダウンロード</h4>
+      <p>上の「ダウンロード」セクションにあるボタンをクリックし、対象MODの最新版JSONファイル（例：<code>ja.json</code>）をダウンロードします。</p>
+      <details>
+        <summary>💡 ファイルがブラウザで開いてしまった場合</summary>
+        <p>ファイル内容が表示されたときは、右クリックして<strong>「名前を付けて保存」</strong>を選んでください。
+        </p>
+      </details>
+    </li>
+    <li>
+      <h4>手順 2：配置先の確認</h4>
+      <p>MODフォルダ内で、該当MODのi18nフォルダ（例：<code>...\Stardew Valley\Mods\MOD名\i18n\</code>）を探します。</p>
+      <details>
+        <summary>🤔 フォルダが見つからない場合</summary>
+        <p>MODの仕様変更などでフォルダ構成が異なることがあります。基本的には i18n フォルダに入れれば問題ありません。</p>
+      </details>
+    </li>
+    <li>
+      <h4>手順 3：ファイルの配置と確認</h4>
+      <p>ダウンロードしたJSONファイルを、手順2で確認したフォルダに<strong>コピー＆ペースト</strong>します。</p>
+    </li>
+    <li>
+      <h4>手順 4：ゲームの起動</h4>
+      <p>ゲームを起動し、翻訳が正しく反映されているか確認してください。
+        <br>うまくいかない場合は、MODフォルダの場所やファイル名が正しいかもう一度確認してみてください。
+        <br>それでも直らない場合は、SMAPIのログにヒントが書かれていることがあります。
+      </p>
+    </li>
+  </ol>
+</section>
+
+<hr>
+{% include changelog.html %}
+<hr>
+
+<section id="notes" class="section-block">
+  <h2>注意事項 ⚠️</h2>
+  <p class="description notes-description-italic">本サイトおよび翻訳ファイルの管理は{{ site.author_name }}が行っています。無断での転載や再配布はご遠慮ください。<br>
+    このサイトは GitHub Pages 上で公開しており、翻訳ファイルや更新履歴は GitHub リポジトリ で管理しています。</p>
+  <hr class="notes-hr">
+  <ul>
+    <li>
+      <strong>【翻訳へのご提案について】</strong><br>
+      翻訳の誤りや気になる表現などがあれば、GitHubリポジトリから提案（Pull Request）を送っていただいて構いません。<br>
+      内容を確認し、反映できそうなものは少しずつ取り入れさせていただきます🌾
+    </li>
+    <hr class="notes-hr">
+    <strong>【引き継ぎについて】</strong><br>
+    元MODの更新から半年以上、当サイトの翻訳が更新されていない場合は、この翻訳をもとにした再翻訳や再配布を自由に行って構いません。その際は、できれば「当サイトの翻訳をもとにしています」と一言添えていただけるとうれしいです。<br>
+    <p class="author-note-small">（つまり、半年以上放置していたら自由に引き継いでOKという方針です）</p>
+    </li>
+    <hr class="notes-hr">
+    <li><strong>【ライセンス】</strong><br>
+      翻訳が継続して更新されている間は CC BY-NC-ND 4.0（非営利・改変禁止）、<br>
+      半年以上更新がない場合は CC BY-NC-SA 4.0（非営利・継承あり） のもとで利用できます。
+      <p class="author-note-small">当サイトで公開している翻訳は、非営利のファン活動として制作しています。翻訳元MODの著作権は、すべて各作者さまに帰属します。</p>
+    </li>
+    <hr class="notes-hr">
+    <li><strong>【取り下げ】</strong><br>翻訳元のMOD作者さまから、配布停止などのご連絡をいただいた場合は、できるだけ早く対応いたします。
+      <p class="author-note-small"><span class="fw-bold">[To the Original MOD Authors]</span>If the original MOD author
+        requests that a translation be removed or distribution stopped,
+        we will promptly respond and take the necessary steps with full respect for your rights.</p>
+    </li>
+  </ul>
+</section>

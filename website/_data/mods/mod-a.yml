@@ -1,0 +1,67 @@
+# =========================
+# 🧩 MOD A 翻訳データ
+# =========================
+
+# --- 基本情報 ---
+slug: mod-a
+title: "MOD A 翻訳ファイル"
+category: "others"    # 「拡張系」→キー方式に統一
+status: "retired"
+
+original_name: "mod-a"
+
+# --- バージョン情報 ---
+mod_ver: "-"
+release_date: "2025-09-25"
+updated: "-"
+size: "-"
+
+source:
+  - name: "Nexus Mods"
+
+links:
+    url: "https://example.com/mod-a"
+
+# --- 概要・紹介 ---
+summary: |
+  配布は終了しました。
+note: # 一覧用の注釈
+
+description: |
+  ここに長めの説明文を入れます。**強調**やリストもOKです。
+
+hero:
+  image: "https://placehold.jp/1200x315.png"
+  caption: "Bear Familyで追加されるNPC（クマの家族）のイメージ"
+
+# --- 詳細説明（長文セクション） ---
+features:
+  - "新しいマップに関連する**NPCイベント**を複数追加。"
+  - "**クエストテキスト**や**アイテム名**まで日本語化。"
+  - "i18n対応のため、将来の更新でも差分適用が容易。"
+
+install-warning: |
+  この翻訳は MOD 本体 (MOD A) のほかに、**Content Patcher** の導入が推奨されます。  
+  必要に応じて前提MODを確認し、正しいフォルダ構成で適用してください。
+
+policy: |
+  - 固有名詞は公式翻訳に準拠  
+  - 会話文は自然な日本語になるよう意訳
+
+install-notes: |
+  ファイルは `[MOD A]/i18n/` に配置してください。
+
+# --- 更新履歴 ---
+changelog:
+  - version: "v2.1.0"
+    date: "2025-10-12"
+    body: |
+      - MOD本体 v1.5.0 に対応しました。
+      - 翻訳の精度を改善し、イベントの会話を自然な表現に変更。
+      - ファイル構成を整理しました。
+
+  - version: "v1.0.0"
+    date: "2025-09-25"
+    body: |
+      - 初回リリース。
+      - テキストベースの動作確認完了。

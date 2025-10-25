@@ -1,0 +1,93 @@
+{%- assign st = mod.status | to_s | strip | downcase -%}
+{%- unless st == "hidden" -%}
+<div class="mod-group">
+  <div class="mod-card{% if st == 'retired' %} is-outdated{% endif %}{% if st == 'upcoming' %} is-upcoming{% endif %}">
+    <h3>
+      {{ mod.title }}
+      {%- if st == 'upcoming' -%}
+      <span class="badge-upcoming">準備中</span>
+      {%- endif -%}
+    </h3>
+
+    {%- if has_detail and detail_page and detail_page.url -%}
+    <p class="detail-link-area">
+      <a href="{{ detail_page.url | relative_url }}" class="detail-link">個別紹介ページを見る ↗️</a>
+    </p>
+    {%- endif -%}
+{%- assign slug = mod.slug | default: page.slug | default: page.mod_slug -%}
+
+{%- assign p = site.data.auto_progress.mods[slug] -%}
+{%- if p == nil and site.data.auto_mods and site.data.auto_mods.mods[slug] and site.data.auto_mods.mods[slug].progress -%}
+{%- assign p = site.data.auto_mods.mods[slug].progress -%}
+{%- endif -%}
+
+{%- if p -%}
+<span class="mod-progress">
+  <strong>翻訳進捗（ざっくり）:</strong>
+  {{ p.pct | round: 1 }}%
+  （{{ p.done }}/{{ p.total }}）
+  {%- if p.pct >= 100 -%} <span class="badge sakura">🌸</span>{%- endif -%}
+</span>
+{%- endif -%}
+
+    <div class="mod-info">
+      <span><strong>対応MOD Ver:</strong>
+        {%- if mod.mod_ver and mod.mod_ver | to_s | strip != "" -%}
+        {{ mod.mod_ver }}
+        {%- else -%}
+        ―
+        {%- endif -%}
+      </span>
+      
+      {%- assign slug = mod.slug -%}
+      {%- assign auto = site.data.auto_mods[slug] -%}
+      {%- if auto and auto.updated -%}
+      <span><strong>最終更新日:</strong> {{ auto.updated }}</span>
+      {%- endif -%}
+      {%- if auto and auto.size_kb -%}
+      <span><strong>ファイルサイズ:</strong> {{ auto.size_kb | round: 1 }}KB</span>
+      {%- endif -%}
+    </div>
+
+    {%- unless st == "retired" or st == "upcoming" -%}
+    {%- if mod.download and mod.download.url -%}
+    {%- assign dl_href = mod.download.url -%}
+    {%- else -%}
+    {%- assign dl_href = '/translations/' | append: mod.slug | append: '/i18n/ja.json' | relative_url -%}
+    {%- endif -%}
+  <a href="{{ dl_href }}" class="download-btn" target="_blank" rel="noopener" download>
+    📥 ファイルをダウンロード{% if mod.mod_ver and mod.mod_ver | strip != "" %}（v{{ mod.mod_ver }}）{% endif %}
+  </a>
+    {%- endunless -%}
+
+    {%- if mod.summary -%}
+    <p class="note">{{ mod.summary }}</p>
+    {%- endif -%}
+    {%- if mod.note -%}
+    <p class="mod-supplement">{{ mod.note }}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="original-mod-link-inline">
+    <div class="card-content-inline">
+      <h4>{{ mod.original_name }}</h4>
+      <p class="card-source-inline">
+        配布元:
+        {%- if mod.source and mod.source != empty -%}
+        {%- for s in mod.source -%}
+        {{ s.name | default: "Nexus Mods" }}{%- if forloop.last == false -%}、{%- endif -%}
+        {%- endfor -%}
+        {%- else -%}
+        Nexus Mods
+        {%- endif -%}
+        </p>
+    </div>
+
+    {%- if mod.links and mod.links.url -%}
+    <a href="{{ mod.links.url }}" target="_blank" rel="noopener" class="mod-link-btn">
+      {{ mod.links.label | default: "MOD本体サイトへ移動" }}
+    </a>
+    {%- endif -%}
+  </div>
+</div>
+{%- endunless -%}

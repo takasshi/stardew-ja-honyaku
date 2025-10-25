@@ -1,0 +1,48 @@
+{%- comment -%}
+カテゴリナビ＋カテゴリ別カード一覧
+- categories.yml の順で出力
+- 各modは site.data.mods から収集
+- status: active/retired → index のカードclassのみ切替
+- 個別ページリンクは "layout: mod-detail" かつ slug一致 & published != false のとき表示
+{%- endcomment -%}
+
+{%- assign cat_map = '拡張系:expansion,アイテム追加:items,UI変更:ui,その他:others' | split: ',' -%}
+
+<nav class="group-nav">
+    {%- for c in site.data.categories -%}
+    <a href="#{{ c.id }}">{{ c.label }}</a>{% unless forloop.last %}|{% endunless %}
+    {%- endfor -%}
+</nav>
+<hr class="nav-divider">
+
+{%- for c in site.data.categories -%}
+<h3 id="{{ c.id }}" class="group-heading">{{ c.label }} MOD</h3>
+<p class="back-to-download"><a href="#download">↑ ダウンロードリンクに戻る</a></p>
+
+{%- for pair in site.data.mods -%}
+{%- assign mod = pair[1] -%}
+
+{%- comment -%} カテゴリ正規化（日本語→キー対応も許容） {%- endcomment -%}
+{%- assign normalized_category = mod.category -%}
+{%- for m in cat_map -%}
+{%- assign kv = m | split: ':' -%}
+{%- if normalized_category == kv[0] -%}
+{%- assign normalized_category = kv[1] -%}
+{%- endif -%}
+{%- endfor -%}
+{%- if normalized_category != c.id -%}{% continue %}{% endif %}
+
+{%- comment -%} 個別ページをレイアウト＋slugで直接特定（URLも同時に取得） {%- endcomment -%}
+{%- assign detail_page = site.pages
+| where: "layout", "mod-detail"
+| where: "slug", mod.slug
+| first -%}
+{%- assign has_detail = detail_page and detail_page.published != false -%}
+
+{%- include mod-card.html
+mod=mod
+has_detail=has_detail
+detail_page=detail_page
+category_anchor=c.id -%}
+{%- endfor -%}
+{%- endfor -%}

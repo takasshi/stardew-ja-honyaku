@@ -1,0 +1,57 @@
+---
+- date: '2025-10-25'
+  sha: STAGED
+  by: local
+  items:
+  - slug: asad
+    path: translations/asad/i18n/ja.json
+  - slug: bank
+    path: translations/bank/i18n/ja.json
+  - slug: bear-family
+    path: translations/bear-family/i18n/ja.json
+  - slug: downhill-project
+    path: translations/downhill-project/i18n/ja.json
+  - slug: eli-and-dylan
+    path: translations/eli-and-dylan/i18n/ja.json
+  - slug: erf3wqewe
+    path: translations/erf3wqewe/i18n/ja.json
+  - slug: fievel-goes-east-scarp
+    path: translations/fievel-goes-east-scarp/i18n/ja.json
+  - slug: qaaaaaaaaaaaa
+    path: translations/qaaaaaaaaaaaa/i18n/ja.json
+  - slug: ranger-taro
+    path: translations/ranger-taro/i18n/ja.json
+  - slug: twt
+    path: translations/twt/i18n/ja.json
+  - slug: apothecary
+    path: translations/apothecary/i18n/ja.json
+  - slug: mod-a
+    path: translations/mod-a/i18n/ja.json
+  - slug: ui-info-suite-2
+    path: translations/ui-info-suite-2/i18n/ja.json
+  - slug: letters-from-cameron
+    path: translations/letters-from-cameron/i18n/ja.json
+- date: '2025-10-24'
+  sha: 5d5d2d4
+  by: local
+  items:
+  - slug: letters-from-cameron
+    path: translations/letters-from-cameron/i18n/ja.json
+  - slug: apothecary
+    path: translations/apothecary/i18n/ja.json
+  - slug: asad
+    path: translations/asad/i18n/ja.json
+  - slug: bear-family
+    path: translations/bear-family/i18n/ja.json
+  - slug: downhill-project
+    path: translations/downhill-project/i18n/ja.json
+  - slug: erf3wqewe
+    path: translations/erf3wqewe/i18n/ja.json
+  - slug: mod-a
+    path: translations/mod-a/i18n/ja.json
+  - slug: qaaaaaaaaaaaa
+    path: translations/qaaaaaaaaaaaa/i18n/ja.json
+  - slug: twt
+    path: translations/twt/i18n/ja.json
+  - slug: ui-info-suite-2
+    path: translations/ui-info-suite-2/i18n/ja.json

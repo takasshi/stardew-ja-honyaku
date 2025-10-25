@@ -1,0 +1,71 @@
+---
+apothecary:
+  slug: apothecary
+  path: translations/apothecary/i18n/ja.json
+  updated: '2025-10-25'
+  size_kb: 0.0
+  sha256_8: 44136fa3
+  keys_count: 0
+bank:
+  slug: bank
+  path: translations/bank/i18n/ja.json
+  updated: '2025-09-23'
+  size_kb: 3.9
+  sha256_8: 600c6417
+  keys_count: 62
+bear-family:
+  slug: bear-family
+  path: translations/bear-family/i18n/ja.json
+  updated: '2025-10-12'
+  size_kb: 1638.9
+  sha256_8: dab2674a
+  keys_count: 10408
+downhill-project:
+  slug: downhill-project
+  path: translations/downhill-project/i18n/ja.json
+  updated: '2025-09-27'
+  size_kb: 80.6
+  sha256_8: b722c744
+  keys_count: 521
+eli-and-dylan:
+  slug: eli-and-dylan
+  path: translations/eli-and-dylan/i18n/ja.json
+  updated: '2025-10-12'
+  size_kb: 562.3
+  sha256_8: 10afd68f
+  keys_count: 2879
+fievel-goes-east-scarp:
+  slug: fievel-goes-east-scarp
+  path: translations/fievel-goes-east-scarp/i18n/ja.json
+  updated: '2025-09-28'
+  size_kb: 23.0
+  sha256_8: e0827774
+  keys_count: 177
+letters-from-cameron:
+  slug: letters-from-cameron
+  path: translations/letters-from-cameron/i18n/ja.json
+  updated: '2025-10-11'
+  size_kb: 18.7
+  sha256_8: 43c9e901
+  keys_count: 102
+mod-a:
+  slug: mod-a
+  path: translations/mod-a/i18n/ja.json
+  updated: '2025-10-24'
+  size_kb: 0.0
+  sha256_8: ca3d163b
+  keys_count: 0
+ranger-taro:
+  slug: ranger-taro
+  path: translations/ranger-taro/i18n/ja.json
+  updated: '2025-10-23'
+  size_kb: 38.8
+  sha256_8: 9913ddd7
+  keys_count: 234
+ui-info-suite-2:
+  slug: ui-info-suite-2
+  path: translations/ui-info-suite-2/i18n/ja.json
+  updated: '2025-10-24'
+  size_kb: 0.0
+  sha256_8: ca3d163b
+  keys_count: 0

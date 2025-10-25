@@ -1,0 +1,8 @@
+- id: expansion
+  label: 拡張系
+- id: items
+  label: アイテム追加
+- id: ui
+  label: UI変更
+- id: others
+  label: その他

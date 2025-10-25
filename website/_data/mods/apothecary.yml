@@ -1,0 +1,53 @@
+slug: apothecary
+title: "Apothecary 翻訳ファイル"
+category: "items"
+status: "active"
+
+original_name: "Apothecary"
+
+mod_ver: "2.1.5"
+release_date: "2025-09-30"
+
+source:
+  - name:
+
+links:
+    url: "https://example.com/apothecary"
+
+summary: |
+  調合・ポーション関連のアイテムやレシピを追加するMOD向け日本語翻訳です。
+note: "この翻訳はxTranslatorで作成されています。ゲーム内の言語を日本語に設定してください。"
+
+description: |
+  アイテム名／レシピ説明／ツールチップの整合性を重視し、重複・表記ゆれを削減しました。
+
+hero:
+  image: "https://placehold.jp/1200x315.png"
+  caption: "Apothecary のイメージ"
+
+features:
+  - "アイテム名・レシピ説明・UI文言を丁寧に日本語化。"
+  - "ツールチップの表記ゆれを解消。"
+  - "今後の追加アイテムにも拡張しやすい語彙設計。"
+
+install-warning: |
+  この翻訳は MOD 本体 (Apothecary) と **Content Patcher** が必要です。  
+  依存関係を確認のうえ導入してください。
+
+policy: |
+  - 固有名詞は公式翻訳に準拠  
+  - 機能説明は簡潔かつ誤解のない表現を優先
+
+install-notes: |
+  ファイルは `[Apothecary]/i18n/` に配置してください。
+
+changelog:
+  - version: "v2.1.5"
+    date: "2025-10-10"
+    body: |
+      - アイテム名とレシピ説明を追加翻訳。
+      - ツールチップの表記ゆれを修正。
+  - version: "v1.0.0"
+    date: "2025-09-30"
+    body: |
+      - 初回リリース。

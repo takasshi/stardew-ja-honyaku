@@ -1,0 +1,51 @@
+slug: ui-info-suite-2
+title: "UI Info Suite 2 翻訳ファイル"
+category: "ui"
+status: "upcoming"
+
+original_name: "UI Info Suite 2"
+
+mod_ver: "2.3.1"
+release_date: "2025-09-20"
+
+source:
+  - name:
+
+links:
+    url: "https://example.com/ui-info-suite-2"
+
+summary: |
+  UI Info Suite 2 の設定メニューやヒント表示など、UI文言を日本語化する翻訳です。
+note: "この翻訳はxTranslatorで作成されています。ゲーム内の言語を日本語に設定してください。"
+
+description: |
+  設定メニュー周辺の日本語化を更新。UIレイアウトを崩さない短文・簡潔表現を徹底しています。
+
+hero:
+  image: "https://placehold.jp/1200x315.png"
+  caption: "UI Info Suite 2 のイメージ"
+
+features:
+  - "設定メニュー・HUDメッセージなどのUI文言を日本語化。"
+  - "改行や幅制約に配慮した短文訳。"
+  - "継続アップデートに対応しやすいキー管理。"
+
+install-warning: |
+  この翻訳は MOD 本体 (UI Info Suite 2) と **Content Patcher** が必要です。
+
+policy: |
+  - UIは可読性・簡潔さを最優先  
+  - 英語UIの意味を損なわない範囲で自然に意訳
+
+install-notes: |
+  ファイルは `[UI Info Suite 2]/i18n/` に配置してください。
+
+changelog:
+  - version: "v2.3.1"
+    date: "2025-10-05"
+    body: |
+      - 設定メニュー周りの日本語化を更新。
+  - version: "v1.0.0"
+    date: "2025-09-20"
+    body: |
+      - 初回リリース。

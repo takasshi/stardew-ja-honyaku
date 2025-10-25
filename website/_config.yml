@@ -1,0 +1,13 @@
+title: stardew-ja-honyaku
+permalink: pretty
+timezone: Asia/Tokyo
+author_name: "管理人"
+
+# GitHub Pages (project site) — ここを必ず設定
+url: "https://takasshi.github.io"
+baseurl: "/stardew-ja-honyaku"
+
+# Markdownの安定化（任意：推奨）
+markdown: kramdown
+kramdown:
+  input: GFM
