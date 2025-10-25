@@ -4,8 +4,7 @@
 require "json"
 require "optparse"
 
-# === コメント許容JSONの読み込み（値抽出用） ===
-# 文字列内は壊さず、行コメント // や ##、ブロックコメント /* */ を除去してから JSON.parse。
+# ========== コメント許容（//, ##, /* */）で読み込む：値抽出専用 ==========
 def read_json_relaxed(path)
   raw = File.read(path, mode: "r:bom|utf-8")
   s = +""
@@ -18,9 +17,12 @@ def read_json_relaxed(path)
   while i < raw.length
     ch = raw[i]
     nx = raw[i + 1]
+
     if in_line
-      in_line = false if ch == "\n"
-      s << ch
+      if ch == "\n"
+        in_line = false
+      end
+      s << ch  # 行末までは残して改行は保存（行数維持）
       i += 1
       next
     elsif in_block
@@ -28,7 +30,7 @@ def read_json_relaxed(path)
         in_block = false
         i += 2
       else
-        s << ch if ch == "\n"
+        s << ch if ch == "\n" # 行数合わせ
         i += 1
       end
       next
@@ -70,10 +72,10 @@ def read_json_relaxed(path)
     end
   end
 
-  JSON.parse(s)
+  JSON.parse(s) # 末尾カンマは不許容
 end
 
-# === JSON文字列として安全に値を書き出す ===
+# JSON 文字列用のエスケープ
 def json_escape(str)
   str.to_s.gsub(/["\\\b\f\n\r\t]/) do |m|
     { '"' => '\\"', "\\" => "\\\\", "\b" => "\\b", "\f" => "\\f",
@@ -81,96 +83,213 @@ def json_escape(str)
   end
 end
 
-# === defaultテンプレートの構造をなぞりつつ値を差し替え ===
-def merge_by_template(default_path, ja_map, out_path)
-  src = File.read(default_path, mode: "r:bom|utf-8")
-  out = File.open(out_path, "w:utf-8")
-
-  in_str = false
+# JSON の "..." を生テキストから安全に読み飛ばす（閉じダブルクオートの位置を返す）
+def scan_string_end(src, i)
+  # i は開きの `" ` を指している前提
+  j = i + 1
   esc = false
-  key_buf = +""
-  val_mode = false
-  key = nil
+  while j < src.length
+    ch = src[j]
+    if esc
+      esc = false
+    elsif ch == "\\"
+      esc = true
+    elsif ch == "\""
+      return j
+    end
+    j += 1
+  end
+  nil
+end
 
+# JSON 文字列の中身を最小限アンエスケープ（キー名判定用）
+def unescape_json_string(raw)
+  s = +""
   i = 0
-  while i < src.length
-    ch = src[i]
-    nx = src[i + 1]
-
-    if in_str
-      out << ch
-      if esc
-        esc = false
-      elsif ch == "\\"
-        esc = true
-      elsif ch == "\""
-        in_str = false
-        if val_mode
-          # 値文字列終了 → 差し替え候補
-          if key && ja_map.key?(key)
-            # 差し替え：直前の値を日本語に置換
-            val = ja_map[key]
-            esc_val = json_escape(val)
-            # 上書き出力：前の " を含めて置換
-            out.seek(-(key_buf.length + 2), IO::SEEK_CUR) if key_buf.size > 0
-            out << "\"#{esc_val}\""
-          end
-          key = nil
-          val_mode = false
-          key_buf.clear
-        end
-      end
+  while i < raw.length
+    ch = raw[i]
+    if ch != "\\"
+      s << ch
       i += 1
       next
+    end
+    nx = raw[i + 1]
+    case nx
+    when "\"", "\\", "/"
+      s << nx
+      i += 2
+    when "b" then s << "\b"; i += 2
+    when "f" then s << "\f"; i += 2
+    when "n" then s << "\n"; i += 2
+    when "r" then s << "\r"; i += 2
+    when "t" then s << "\t"; i += 2
+    when "u"
+      hex = raw[i + 2, 4]
+      if hex && hex.match?(/\A[0-9A-Fa-f]{4}\z/)
+        s << hex.to_i(16).chr(Encoding::UTF_8)
+        i += 6
+      else
+        s << "\\u"; i += 2
+      end
     else
-      if ch == "\""
-        in_str = true
+      # 不明なエスケープはそのまま
+      s << "\\" << nx
+      i += 2
+    end
+  end
+  s
+end
+
+# 次の非空白文字のインデックス
+def next_nonspace(src, idx)
+  j = idx
+  while j < src.length && src[j] =~ /[ \t\r\n]/
+    j += 1
+  end
+  j
+end
+
+# default テンプレートをなぞり、値の "..." だけをスキップして ja_map の値を差し込む
+def merge_by_template(default_path, ja_map, out_path)
+  src = File.read(default_path, mode: "r:bom|utf-8")
+  File.open(out_path, "w:utf-8") do |out|
+    i = 0
+    in_str = false
+    esc = false
+    in_line = false
+    in_block = false
+    depth = 0
+
+    current_key = nil
+    expect_value_for_key = false
+
+    while i < src.length
+      ch = src[i]
+      nx = src[i + 1]
+
+      # コメント状態
+      if in_line
         out << ch
-        # キー取得モード開始
-        if !val_mode && key.nil?
-          # 次の : までを見てキーと判断
-          j = i + 1
-          kbuf = +""
-          esc2 = false
-          while j < src.length
-            cj = src[j]
-            if esc2
-              kbuf << cj
-              esc2 = false
-            elsif cj == "\\"
-              esc2 = true
-              kbuf << cj
-            elsif cj == "\""
-              break
-            else
-              kbuf << cj
-            end
-            j += 1
-          end
-          # 次が : ならキー確定
-          tail = src[j..j + 10] || ""
-          if tail.include?(":")
-            key = kbuf
-          end
+        if ch == "\n"
+          in_line = false
+        end
+        i += 1
+        next
+      elsif in_block
+        out << ch
+        if ch == "*" && nx == "/"
+          out << nx
+          i += 2
+          in_block = false
         else
-          # 値モードの文字列開始
-          val_mode = true if key
-          key_buf.clear
+          i += 1
+        end
+        next
+      end
+
+      # 文字列状態（そのまま写す）
+      if in_str
+        out << ch
+        if esc
+          esc = false
+        elsif ch == "\\"
+          esc = true
+        elsif ch == "\""
+          in_str = false
         end
         i += 1
         next
       end
+
+      # ここから「文字列外」の通常状態
+      # コメント開始検出（default側コメントはそのまま出力）
+      if ch == "/" && nx == "/"
+        out << ch << nx
+        in_line = true
+        i += 2
+        next
+      elsif ch == "/" && nx == "*"
+        out << ch << nx
+        in_block = true
+        i += 2
+        next
+      elsif ch == "#" && nx == "#"
+        out << ch << nx
+        in_line = true
+        i += 2
+        next
+      end
+
+      # 構造記号の追跡（深さ）
+      if ch == "{"
+        depth += 1
+      elsif ch == "}"
+        depth -= 1
+        # オブジェクト終端でキー/値期待をリセット
+        current_key = nil
+        expect_value_for_key = false
+      elsif ch == ","
+        # ペア終了
+        current_key = nil
+        expect_value_for_key = false
+      end
+
+      # コロンで「次は値」を期待
+      if ch == ":"
+        out << ch
+        expect_value_for_key = !current_key.nil?
+        i += 1
+        next
+      end
+
+      # ダブルクオートに遭遇：キー or 値 のどちらか
+      if ch == "\""
+        j = scan_string_end(src, i)
+        # 壊れたJSONは別スクリプトで検証する想定
+        j ||= src.length - 1
+
+        # 直後が : なら「キー」
+        after = next_nonspace(src, j + 1)
+        if after < src.length && src[after] == ":"
+          # キーはそのまま出力して覚える
+          out << src[i..j]
+          # キー文字列をアンエスケープして取得
+          raw_key = src[i + 1...j]
+          current_key = unescape_json_string(raw_key)
+          # 次に : を通過したら値を置換対象にする（ここではまだ書かない）
+          i = j + 1
+          next
+        else
+          # 値の文字列
+          if expect_value_for_key && current_key && ja_map.key?(current_key)
+            # 元の値文字列はスキップして、日本語の値を差し込む
+            val = ja_map[current_key]
+            out << "\"" << json_escape(val) << "\""
+            # 置換完了。次の , または } まで current_key は保持しておく必要はない
+            expect_value_for_key = false
+            current_key = nil
+            i = j + 1
+            next
+          else
+            # 置換対象でなければそのまま出力
+            out << src[i..j]
+            i = j + 1
+            next
+          end
+        end
+      end
+
+      # 通常の1文字出力
       out << ch
+      # 文字列開始の管理
+      in_str = true if ch == "\""
       i += 1
     end
   end
-
-  out.close
 end
 
 # ===== CLI =====
 opts = { in_place: false }
-
 OptionParser.new do |o|
   o.banner = "Usage: ruby merge_json_template.rb DEFAULT_JSON JA_JSON [--in-place]"
   o.on("--in-place", "Overwrite JA_JSON in place") { opts[:in_place] = true }
@@ -179,9 +298,11 @@ end.parse!
 default_path, ja_path = ARGV
 abort "Need DEFAULT_JSON and JA_JSON" unless default_path && ja_path
 
+# ja の値（コメント無視で読み取り）
 ja_map = read_json_relaxed(ja_path)
 
-out_path = opts[:in_place] ? ja_path : "out.json"
+# 出力先（テストは out.json、本番は ja.json を上書き）
+out_path = opts[:in_place] ? ja_path : File.expand_path("out.json", Dir.pwd)
 merge_by_template(default_path, ja_map, out_path)
 
-puts "✅ Done. Wrote to #{opts[:in_place] ? ja_path : out_path}"
+puts "✅ Done. Wrote to #{out_path}"
