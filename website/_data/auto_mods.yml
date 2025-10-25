@@ -23,9 +23,9 @@ bear-family:
 downhill-project:
   slug: downhill-project
   path: translations/downhill-project/i18n/ja.json
-  updated: '2025-09-27'
-  size_kb: 80.6
-  sha256_8: b722c744
+  updated: '2025-10-25'
+  size_kb: 80.8
+  sha256_8: cd1d845b
   keys_count: 521
 eli-and-dylan:
   slug: eli-and-dylan
