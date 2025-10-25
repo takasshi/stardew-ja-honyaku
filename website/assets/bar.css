@@ -1,0 +1,95 @@
+.mod-progress--inline{
+  display:inline-flex;
+  align-items:center;
+  gap:.5em;
+  font-size:.90rem;
+  white-space:nowrap;
+}
+
+.mod-progress--inline strong{
+  font-weight:600;
+  color:var(--note-color-dark);
+}
+
+.mod-progress--inline .num{
+  font-weight:500;
+  color:var(--text-color);
+  max-width: 50ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ▼バー本体 */
+.mod-progress--inline .bar{
+  display:inline-block;
+  position:relative;
+  width: clamp(80px, 22vw, 160px);
+  height:6px;
+  background: var(--gray-x-light); /* ← ベース色（常に見える） */
+  border-radius:999px;
+  overflow:hidden;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.mod-progress--inline .bar .fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--p, 0%);
+  height: 100%;
+  border-radius: 999px;
+
+  /* 🌊 やさしい水色〜青のグラデーション */
+  background: linear-gradient(
+    90deg,
+    #89f7fe,
+    #66a6ff,
+    #00c3ff,
+    #a0e9ff,
+    #89f7fe
+  );
+  background-size: 300% 100%;
+  animation: progress-loop 12s linear infinite;
+  box-shadow: 0 0 20px rgba(0, 180, 255, 0.35);
+}
+
+/* 横方向にループ */
+@keyframes progress-loop {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+.done { color: var(--main-color-dark); font-weight: 700; margin-left: .4em; }
+.almost-done { color: var(--note-color-dark); font-weight: 600; margin-left: .4em; }
+.good { color: #228B22; font-weight: 600; margin-left: .4em; }
+.meh { color: #777; margin-left: .4em; }
+.low { color: #cc8800; margin-left: .4em; }
+.very-low { color: #ff6b81;  font-weight: 600; margin-left: .4em;}
+
+@media (max-width: 768px) {
+  .mod-progress--inline{
+    white-space: normal !important; /* ← nowrapを確実に殺す */
+    display: inline-flex;
+    flex-wrap: wrap;                /* ← 行送りOKに */
+    align-items: flex-start;
+    gap: .35em;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .mod-progress--inline .num{
+    min-width: 0;                   /* フレックス収まり改善 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+    .mod-progress--inline .bar{
+    flex-basis: 100% !important;  /* ← 強制的に改行して1行占有 */
+    width: 100% !important;
+    max-width: 100%;
+    margin-top: .35em;
+  }
+}

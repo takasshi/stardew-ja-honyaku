@@ -1,0 +1,56 @@
+# --- 基本情報 ---
+slug: letters-from-cameron
+title: "Letters From Cameron (ja)"
+category: "dialogue" 
+status: "active"
+
+original_name: "Letters From Cameron"
+
+# --- バージョン情報 ---
+mod_ver: "1.0.1"
+release_date: "2025-09-25"
+
+source:
+  - name: 
+
+links:
+    url: "https://www.nexusmods.com/stardewvalley/mods/35474"
+
+# --- 概要・紹介 ---
+summary: |
+  あなたの元同僚、キャメロンから手紙が届きました…。
+  aaaa
+
+note: | 
+  たまに届く手紙を追加するMODです。 aaaa
+
+description: |
+  Joja時代の同僚（自称親友）から届く手紙を追加するMODです。前提MOD：Mail Framework Mod
+
+hero:
+  image: 
+  caption: 
+
+# --- 詳細説明（長文セクション） ---
+features:
+  - "主人公が辞めたあとのJojaの雰囲気を感じられます。闇深い…。"
+  - "ストーリー仕立てで最後はちょっとしんみりできるような手紙を追加します。"
+
+install-warning: |
+  ⚠ 軽微な薬物依存描写があります。
+
+policy: |
+  - Bestie（＝親友）は「ベスティ」と翻訳（主人公と噛み合わない雰囲気）。
+  - そんなに親しくなかったのにちょっと鬱陶しい手紙💌を送ってくる元同僚を表現しました。
+
+# --- 更新履歴 ---
+changelog:
+  - version: "v1.0.1 -translation"
+    date: "2025-10-19"
+    body: |
+      - 公開。
+
+  - version: "v1.0.1 -translation"
+    date: "2025-10-11"
+    body: |
+      - 翻訳完了。

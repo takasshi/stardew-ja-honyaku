@@ -1,0 +1,94 @@
+{
+	// task names and keywords (for parsing)
+	"task.animal": "家畜",
+	"task.animal.keywords": "購入,買う,入手",
+	"task.basic": "基本",
+	"task.blacksmith": "道具の強化",
+	"task.blacksmith.keywords": "強化,購入,買う,入手",
+	"task.build": "建築",
+	"task.build.keywords": "建てる,建築,強化,購入,買う,入手",
+	"task.buy": "購入",
+	"task.buy.keywords": "購入,買う,入手",
+	"task.collect": "収集",
+	"task.collect.keywords": "収集,伐採,収穫,採取,採集,釣り,捕まえる,採掘,掘る,見つける,探す,回収,入手,作る",
+	"task.craft": "クラフト",
+	"task.craft.keywords": "クラフト,料理,作成,作る,入手",
+	"task.gift": "贈り物",
+	"task.gift.keywords": "贈り物,渡す",
+	"task.header": "見出し",
+	"task.sell": "販売",
+	"task.sell.keywords": "売る,出荷",
+
+	// tab/page names
+	"ui.tab.quests": "クエスト",
+	"ui.tab.tasks": "タスク",
+	"ui.tab.notes": "メモ",
+	"ui.tab.overlays": "オーバーレイ",
+	
+	// tasks page
+	"ui.tasks.help": "下の「タスクを追加」ボタンを押してください",
+	"ui.tasks.addbutton.hover": "タスクを追加",
+	"ui.tasks.editbox.hover": "タスクを編集",
+	"ui.tasks.removebutton.hover": "タスクを削除",
+	"ui.tasks.renewbutton.hover": "タスクを更新",
+	"ui.tasks.renew.day": "{{count}} 日",
+	"ui.tasks.renew.days": "{{count}} 日",
+	"ui.tasks.status.deliver": "[152] 配達",
+	"ui.tasks.status.upgrading": "[42] 強化中",
+	"ui.tasks.status.ready": "[151] 完了",
+	"ui.tasks.moneybox.hover0": "支払額/収益の合計",
+	"ui.tasks.moneybox.hover1": "純資産",
+	"ui.tasks.moneybutton.hover": "表示を切り替え",
+	"ui.tasks.filter": "フィルタ: {{category}}",
+	"ui.tasks.filter.all": "すべて",
+
+	// add new task menu
+	"ui.tasks.new": "新しいタスクを追加",
+	"ui.tasks.new.optionsbutton.hover": "オプション",
+	"ui.tasks.new.cancelbutton.hover": "キャンセル",
+	"ui.tasks.new.smartokbutton.hover": "スマート追加",
+	"ui.tasks.new.smarttip": "スマート追加はタスクに高度なオプションを自動で適用します。",
+
+	// task options menu
+	"ui.tasks.options": "タスクオプション",
+	"ui.tasks.options.name": "名前",
+	"ui.tasks.options.renew": "更新間隔",
+	"ui.tasks.options.renew.Never": "なし",
+	"ui.tasks.options.renew.Daily": "毎日",
+	"ui.tasks.options.renew.Weekly": "毎週",
+	"ui.tasks.options.renew.Monthly": "毎月",
+	"ui.tasks.options.renew.Annually": "毎年",
+	"ui.tasks.options.renew.Custom": "カスタム",
+	"ui.tasks.options.type": "タスクの種類",
+
+	// task parameter names
+	"ui.tasks.parameter.animal": "動物",
+	"ui.tasks.parameter.building": "建物",
+	"ui.tasks.parameter.color": "色",
+	"ui.tasks.parameter.count": "数",
+	"ui.tasks.parameter.item": "アイテム",
+	"ui.tasks.parameter.npc": "村人",
+	"ui.tasks.parameter.quality": "品質（最低）",
+	"ui.tasks.parameter.tool": "道具",
+
+	// overlays page
+	"ui.overlays.backgroundcolor": "背景色",
+	"ui.overlays.hotkey": "ホットキー: {{keybind}}",
+
+	// +---------------------------------+
+	// | display name aliases (OPTIONAL) |
+	// +---------------------------------+
+	// NOTE: case insensitive, underscores replaced with spaces
+
+	// animal shop display names
+	"alias.animalshop.dairy_cow": "cow,cows",
+
+	// building display names
+	"alias.buildings.farmhouse": "house,home",
+
+	// item display names
+	"alias.items.copper_pan": "pan",
+
+	// villager display names
+	"alias.npcs.abigail": "abby"
+}

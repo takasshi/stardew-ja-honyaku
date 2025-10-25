@@ -1,0 +1,19 @@
+<header>
+    <div class="container">
+        <a href="{{ '/' | relative_url }}">
+            <h1>{{ site.title }} 🌾</h1>
+        </a>
+        <nav class="sticky-nav">
+            <ul>
+                {%- if page.layout == "mod-detail" -%}
+                <li><a href="{{ '/' | relative_url }}">ダウンロードTOPへ 🏠</a></li>
+                {%- else -%}
+                <li><a href="#download">ダウンロード 💾</a></li>
+                <li><a href="#how-to">導入方法 🛠️</a></li>
+                <li><a href="#changelog">変更履歴 📜</a></li>
+                <li><a href="#notes">注意事項 ⚠️</a></li>
+                {%- endif -%}
+            </ul>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,56 @@
+# --- slug（重要） ---
+slug: moreseedinfo # 小文字で書く（基本的には自動生成）
+
+# --- 基本情報 ---
+title: "More Seed Info (ja)"
+category: ui   # expansion / items / ui / dialogue / misc
+status: active   # active / retired / upcoming / hidden（自動生成時）
+
+original_name:   # 翻訳元MODの正式名称（任意）
+
+# --- メタ情報（auto_mods.ymlで出せないもの） ---
+mod_ver: ""                 # 無記入OK
+release_date: "2024-07-10"  # ← 日付は必ずクォートで囲む
+
+source:
+  - name:     # 空欄の場合は Nexus Mods などがデフォルト
+
+links:
+  url: "https://www.nexusmods.com/stardewvalley/mods/35993"  # 参照URL（任意）
+
+# --- 概要・紹介 ---
+summary: |  # 一覧/個別ページ上部のキャッチコピー
+  夜の浜辺で拾った小瓶の中には、見知らぬ誰かからの手紙が入っていました…。
+
+note: "ファイルは `[Driftwood Letters]/i18n/` に配置してください。"  # 一覧ページの青いブロック（無記入OK）
+
+description: |  # 前提MODなど、少し長めの説明
+
+
+# --- アイキャッチ画像（任意） ---
+hero:
+  image:
+  caption:
+
+# --- 詳細説明（長文セクション） ---
+features:       # MODのおすすめポイントを箇条書き
+  - 季節や天気によって異なる「漂流ボトル」が出現します。
+  - 手紙の内容は少しずつ変化し、断片的な物語が浮かび上がります。
+  - すべてを集めると、ささやかなエンディングイベントが発生します。
+
+install-warning: |  # MOD内の注意書き（翻訳に関する注意ではない）
+  ⚠ 一部のメッセージには喪失や別れをテーマにした表現が含まれます。苦手な方はご注意ください。
+
+policy: |  # 翻訳の方針やクセなど
+  - 手紙の文体は「日記のような語り口」を意識し、やわらかい一人称で統一しています。
+  - 誰が書いたか明示されない手紙も多いため、過剰に説明せず余韻を残す方向で訳しました。
+
+install-notes: |  # フォルダ名が特殊な場合など（無記入OK）
+  ファイルは `[Driftwood Letters]/i18n/` に配置してください。
+
+# --- 更新履歴 ---
+changelog:
+  - version: "v1.0.1 -translation"
+    date: "2025-10-19"  # ← auto_mods.yml★ 参照などがある場合は文字列にする
+    body: |
+      - 公開。

@@ -1,0 +1,139 @@
+---
+layout: default
+---
+
+{%- assign mod = site.data.mods[page.slug] -%}
+{% if mod == nil %}
+<section class="section-block">
+  <h2>データが見つかりません</h2>
+  <p>slug: <code>{{ page.slug }}</code> に対応するデータがありません。</p>
+</section>
+{% else %}
+
+{%- comment -%}
+── 前処理：状態とデータの取得 ────────────────────────
+{%- endcomment -%}
+{%- assign st = mod.status | to_s | strip | downcase -%}
+{%- assign slug = mod.slug | default: page.slug | default: page.mod_slug -%}
+{%- assign auto = site.data.auto_mods[slug] -%}
+{%- assign p = site.data.auto_progress.mods[slug] | default: auto.progress -%}
+
+<section class="mod-detail-hero">
+  <h2>{{ mod.title }}</h2>
+
+  {% if mod.summary %}
+  <p class="description">{{ mod.summary | newline_to_br }}</p>
+  {% endif %}
+  
+  {%- comment -%} ダウンロードリンク ────────────────────────{%- endcomment -%}
+  {%- assign dl_href = mod.download.url
+  | default: 'translations/' | append: mod.slug | append: '/i18n/ja.json' | relative_url -%}
+  <a href="{{ dl_href }}" class="download-btn" target="_blank" rel="noopener" download>
+    📥 ファイルをダウンロード
+    {% assign ver = mod.mod_ver | to_s | strip %}
+    {% if ver != blank %}（v{{ ver }}）{% endif %}
+  </a>
+
+  {%- comment -%} MOD情報（自動データ） ────────────────────────{%- endcomment -%}
+  <div class="mod-info" style="margin-top:25px;">
+    <span class="fw-bold">対応MOD Ver: {{ mod.mod_ver | default: "―" }}</span>
+    {% if auto and auto.updated %}
+    <span class="fw-bold">最終更新日: {{ auto.updated }}</span>
+    {% endif %}
+    {% if auto and auto.size_kb %}
+    <span class="fw-bold">ファイルサイズ: {{ auto.size_kb | round: 1 }}KB</span>
+    {% endif %}
+  </div>
+
+  {% if mod.hero and mod.hero.image %}
+  <div class="mod-image-container">
+    <img src="{{ mod.hero.image }}" alt="{{ mod.hero.caption | default: mod.title }}" class="mod-main-image">
+    {% if mod.hero.caption %}
+    <p class="image-caption">{{ mod.hero.caption }}</p>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% if mod.source or mod.links %}
+  <div class="original-mod-link-inline" style="margin-top:20px;">
+    <div class="card-content-inline">
+      <h4>{{ mod.original_name }}</h4>
+      <p class="card-source-inline">
+        配布元:
+        {% if mod.source and mod.source != empty %}
+        {% for s in mod.source %}
+        {{ s.name | default: "Nexus Mods" }}{% unless forloop.last %}、{% endunless %}
+        {% endfor %}
+        {% else %}
+        Nexus Mods
+        {% endif %}
+        </p>
+        </div>
+    {% if mod.links and mod.links.url %}
+    <a href="{{ mod.links.url }}" target="_blank" rel="noopener" class="mod-link-btn">
+      {{ mod.links.label | default: "MOD本体サイトへ移動" }}
+    </a>
+    {% endif %}
+  </div>
+  {% endif %}
+</section>
+
+<section id="long-description" class="section-block">
+  <h2>MODの詳細 ℹ️</h2>
+  <div class="long-description-block">
+{% assign desc = mod.description | strip %}
+{% if desc != '' %}
+    {{ desc | markdownify }}
+    {% endif %}
+
+    {% assign warn = mod['install-warning'] | strip %}
+    {% if warn != '' %}
+    <div class="warning-box">
+      <p>{{ warn | markdownify }}</p>
+    </div>
+    {% endif %}
+
+    {% if mod.features and mod.features.size > 0 %}
+    <h3>👍おすすめポイント</h3>
+    <ul>
+      {% for feature in mod.features %}
+      {% assign text = feature | strip %}
+      {% if text != '' %}
+      <li>{{ text | markdownify | strip_html }}</li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% assign policy = mod.policy | strip %}
+    {% if policy != '' %}
+    <h3>📖 翻訳の方針</h3>
+    {{ policy | markdownify }}
+    {% endif %}
+
+    {% assign note = mod['note'] | strip %}
+    {% if note != '' %}
+    <h3>⚙️ インストールについて</h3>
+    <p>基本的な導入手順はトップページの「導入方法」セクションをご覧ください。</p>
+    <p class="mod-supplement">{{ note | markdownify | strip_html }}</p>
+    {% endif %}
+  </div>
+</section>
+
+<section id="detail-changelog" class="section-block">
+  <h2>変更履歴 📜</h2>
+  {% if mod.changelog %}
+  <ul class="changelog-list">
+    {% for log in mod.changelog %}
+    <li>
+      {{ log.date }} <strong>{{ log.version }}</strong>
+      {% if log.body %}
+      <div class="changelog-body">{{ log.body | markdownify }}</div>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</section>
+
+{% endif %}

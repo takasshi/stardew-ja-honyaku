@@ -1,0 +1,10 @@
+- id: expansion
+  label: マップ・住民追加
+- id: items
+  label: アイテム追加
+- id: ui
+  label: UI変更
+- id: dialogue
+  label: 会話・イベント追加
+- id: misc
+  label: その他

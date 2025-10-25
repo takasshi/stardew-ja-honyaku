@@ -1,0 +1,46 @@
+---
+mods:
+  bear-family:
+    pct: 6.4
+    done: 670
+    total: 10408
+  deluxejournal:
+    pct: 93.9
+    done: 62
+    total: 66
+  downhill-project:
+    pct: 99.8
+    done: 520
+    total: 521
+  eli-and-dylan:
+    pct: 12.0
+    done: 345
+    total: 2879
+  fievel-goes-east-scarp:
+    pct: 81.9
+    done: 145
+    total: 177
+  food-safety-channel:
+    pct: 96.4
+    done: 27
+    total: 28
+  hisames-gardening-channel:
+    pct: 100.0
+    done: 30
+    total: 30
+  letters-from-cameron:
+    pct: 100.0
+    done: 102
+    total: 102
+  lumisteria-serene-meadow:
+    pct: 99.2
+    done: 262
+    total: 264
+  moreseedinfo:
+    pct: 59.0
+    done: 46
+    total: 78
+  wildflours-atelier-goods:
+    pct: 67.0
+    done: 1600
+    total: 2389

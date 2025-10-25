@@ -1,0 +1,53 @@
+---
+- date: '2025-10-29'
+  sha: STAGED
+  by: local
+  items:
+  - slug: bank
+    path: translations/bank/i18n/ja.json
+  - slug: bear-family
+    path: translations/bear-family/i18n/ja.json
+  - slug: downhill-project
+    path: translations/downhill-project/i18n/ja.json
+  - slug: eli-and-dylan
+    path: translations/eli-and-dylan/i18n/ja.json
+  - slug: fievel-goes-east-scarp
+    path: translations/fievel-goes-east-scarp/i18n/ja.json
+  - slug: ranger-taro
+    path: translations/ranger-taro/i18n/ja.json
+  - slug: apothecary
+    path: translations/apothecary/i18n/ja.json
+  - slug: mod-a
+    path: translations/mod-a/i18n/ja.json
+  - slug: ui-info-suite-2
+    path: translations/ui-info-suite-2/i18n/ja.json
+  - slug: letters-from-cameron
+    path: translations/letters-from-cameron/i18n/ja.json
+  - slug: food-safety-channel
+    path: translations/food-safety-channel/i18n/ja.json
+  - slug: hisames-gardening-channel
+    path: translations/hisames-gardening-channel/i18n/ja.json
+  - slug: lumisteria-serene-meadow
+    path: translations/lumisteria-serene-meadow/i18n/ja.json
+  - slug: wildflours-atelier-goods
+    path: translations/wildflours-atelier-goods/i18n/ja.json
+  - slug: deluxejournal
+    path: translations/deluxejournal/i18n/ja.json
+  - slug: moreseedinfo
+    path: translations/moreseedinfo/i18n/ja.json
+- date: '2025-10-24'
+  sha: 5d5d2d4
+  by: local
+  items:
+  - slug: letters-from-cameron
+    path: translations/letters-from-cameron/i18n/ja.json
+  - slug: apothecary
+    path: translations/apothecary/i18n/ja.json
+  - slug: bear-family
+    path: translations/bear-family/i18n/ja.json
+  - slug: downhill-project
+    path: translations/downhill-project/i18n/ja.json
+  - slug: mod-a
+    path: translations/mod-a/i18n/ja.json
+  - slug: ui-info-suite-2
+    path: translations/ui-info-suite-2/i18n/ja.json

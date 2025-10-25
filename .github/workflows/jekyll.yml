@@ -1,0 +1,66 @@
+name: Build & Deploy Jekyll
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Ruby + Bundler を website/ でセットアップ（bundler-cache が自動で bundle install します）
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+          working-directory: website
+
+      # （任意）Linuxプラットフォームをロックに追加：ローカルで追加済なら不要
+      # - name: Add linux platform to lockfile (temporary)
+      #   run: bundle lock --add-platform x86_64-linux || true
+      #   working-directory: website
+
+      # 生成スクリプト（リポジトリ直下にある想定）
+      - name: Generate auto data
+        run: |
+          ruby scripts/generate_mod_data.rb
+          ruby scripts/update_changelog.rb
+
+      # Jekyll ビルドは website/ を作業ディレクトリにして、出力はリポジトリ直下の _site/ へ
+      - name: Build Jekyll
+        working-directory: website
+        env:
+          JEKYLL_ENV: production
+        run: |
+          bundle exec jekyll -v
+          bundle exec jekyll build --destination ../_site --trace
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

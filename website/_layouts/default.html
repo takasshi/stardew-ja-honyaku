@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <link rel="icon" href="{{ '/assets/favicon.ico' | relative_url }}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ '/assets/favicon.ico' | relative_url }}" type="image/x-icon">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/bar.css' | relative_url }}">
+  <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+  <style>
+    img.emoji {
+      height: 1em;
+      width: 1em;
+      margin: 0 .05em 0 .1em;
+      vertical-align: -0.1em;
+    }
+  </style>
+</head>
+
+<body>
+  {% include header.html %}
+  <main class="container">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+  <a href="#top" id="back-to-top" class="back-to-top" title="ページトップへ戻る">↑ 上に戻る</a>
+<script>
+  twemoji.parse(document.body);
+</script>
+<!--
+Emoji graphics by Twemoji (Twitter OSS) — licensed under CC BY 4.0.
+Code by Twemoji — licensed under MIT.
+Copyright (c) 2022–present Jason Sofonia & Justine De Caires
+Copyright (c) 2014–2021 Twitter
+-->
+
+  </body>
+
+</html>

@@ -1,0 +1,43 @@
+# --- Jekyll / Ruby ---
+/website/_site/
+.jekyll-cache/
+.bundle/
+vendor/
+
+# バックアップなので追跡しなくてよい
+_design/
+
+# ミラー先は追跡しない（自動生成物）
+website/translations/
+
+# 生成ログは追跡しない
+scripts/precommit_error.log
+out.json
+
+# 別に公開しなくて良いスクリプト
+scripts/merge_json_template.rb
+scripts/check_keys.rb
+
+# translations: 配布不要ファイルは無視
+translations/**/i18n/default.json
+
+# mods: サンプルファイル
+website/_data/mods/xxx-default.yml
+website/_data/mods/xxx-driftwood-letters-retired.yml
+website/_data/mods/xxx-silver-garden.yml
+
+website/pages/mods/xxx-default.md
+
+# 依存ファイル
+Gemfile.lock
+
+# --- System / Editor files ---
+.DS_Store
+Thumbs.db
+*.bak
+*.tmp
+*.txt
+commit_guide.md
+
+# --- Node / NPM (将来導入時の保険) ---
+node_modules/

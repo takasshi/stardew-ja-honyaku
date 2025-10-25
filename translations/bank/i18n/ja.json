@@ -1,0 +1,77 @@
+{
+	"Bank.userName": "ご利用者名:",
+	"Bank.totalDeposits": "総預入額:",
+	"Bank.currentDeposit": "普通預金残高:",
+	"Bank.fixedTimeDeposit": "定期預金残高:",
+	"Bank.aboutToExpire": "まもなく満期を迎える定期預金:",
+
+	"Bank.depositButton": "お預け入れ",
+	"Bank.money": "ご入金額:",
+	"Bank.depositCategory": "口座区分:",
+	"Bank.depositCategory.currentDeposit": "普通預金",
+	"Bank.depositCategory.fixedTimeDeposit": "定期預金",
+	"Bank.DepositTerm": "お預け期間:",
+	"Bank.DepositTerm.0": "2週間",
+	"Bank.DepositTerm.1": "1シーズン",
+	"Bank.DepositTerm.2": "2シーズン",
+	"Bank.DepositTerm.3": "3シーズン",
+	"Bank.DepositTerm.4": "1年",
+	"Bank.DepositTerm.depositButton": "お預け入れ",
+	"Bank.DepositTerm.returnButton": "戻る",
+
+	"Bank.drawMoney": "お引き出し",
+	"Bank.drawMoneyHint": "現在の普通預金残高: {{money}}G",
+
+	"Bank.Tips.1": "入力形式が正しくありません。",
+	"Bank.Tips.2": "{{money}}G を普通預金にお預け入れいただきました。",
+	"Bank.Tips.3": "{{money}}G を定期預金にお預け入れいただきました。",
+	"Bank.Tips.4": "満期を迎えた定期預金があります。",
+	"Bank.Tips.5": "所持金が不足しています。資金を増やしてからお預けください。",
+	"Bank.Tips.6": "口座残高が不足しています。",
+	"Bank.Tips.7": "{{money}}G を引き出しました。",
+	"Bank.Tips.8": "処理に失敗しました。定期預金は最大5件までご利用いただけます。",
+	"Bank.Tips.9": "未返済のローンがあります。",
+	"Bank.Tips.10": "本日のご返済が完了しました。",
+	"Bank.Tips.11": "すべてのローンを完済しました。",
+	"Bank.Tips.12": "本日ご返済いただくローンがあります。",
+	"Bank.Tips.13": "前日のご返済が滞ったため、延滞扱いとなり強制的に回収手続きが実施されました。",
+	"Bank.Tips.14": "定期預金は2000G以上からご利用いただけます。",
+
+	"Bank.loans": "ローン",
+	"Bank.repayment": "返済",
+	"Bank.FullRepayment": "全額返済",
+
+	"Bank.startTime": "預入日:",
+	"Bank.endTime": "満期日:",
+	"Bank.earnings": "利息:",
+
+	"Bank.ATM_MenuWidth": 1152,
+	"Bank.ATM_MenuHigh": 648,
+	"Bank.ATM_MenuButtonWidth": 150,
+	"Bank.ATM_MenuButtonHigh": 50,
+	"Bank.ATM_MenuSpaceBetween": 36,
+
+	"Bank.ATM.describe": "こちらでお預け入れ・お引き出しが可能です",
+
+	"Bank.ATM.LoanableAmount": "ご利用可能額:",
+
+	"Bank.ATM.Width": 700,
+	"Bank.ATM.Width2": 700,
+	"Bank.ATM.High": 512,
+
+	"Bank.ATM.DailyInterestRate": "日利:",
+
+	"Bank.ATM.Loans.debt": "総ローン残高:",
+	"Bank.ATM.Loans.todayDebt": "本日のご返済額合計:",
+	"Bank.ATM.Loans.principal": "本日の元金ご返済額:",
+	"Bank.ATM.Loans.interest": "本日の利息ご返済額:",
+	"Bank.ATM.Loans.startRepaymentData": "ご返済開始日:",
+	"Bank.ATM.Loans.endRepaymentData": "ご返済終了日:",
+
+	"Bank.ATM.Loans.succeed": "{{money}}G のローンをお借り入れいただきました。",
+	"Bank.ATM.Loans.MinimumCreditLine": "ローンは 1000G 以上からご利用いただけます。",
+	"Bank.ATM.Loans.LimitingCondition": "ローン金額は 1000G 単位でご指定ください。",
+	"Bank.ATM.Loans.overdue": "延滞中のローンがあります。違約金 {{money}}G をお支払いください。",
+
+	"Bank.ATM.YZ.Mail": "親愛なる @ 様へ:^本ATMサービスは、ゲーム内でより充実した金融体験をご提供するために開発されました。^皆様のプレイ体験を損なう不具合とならぬよう、十分に配慮しております。^どうか現実とはひと味違った喜びを、この世界で見つけていただければ幸いです。^最後に、ささやかな贈り物をご用意いたしましたので、ぜひお受け取りください。^――ATM開発者 YangZ より %item object 458 1 %%"
+}

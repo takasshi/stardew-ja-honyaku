@@ -1,0 +1,19 @@
+<section id="changelog" class="section-block">
+  <h2>変更履歴 📜</h2>
+  <p class="description">最近の更新内容です。正確な更新履歴はGitHubをご確認ください。</p>
+  <ul class="changelog-list">
+    {%- assign logs = site.data.changelog | sort: "date" | reverse -%}
+    {%- for item in logs -%}
+    <li>
+      <time class="date" datetime="{{ item.date }}">{{ item.date }}</time>
+      <strong>{{ item.title }}</strong>
+      <ul class="changelog-body">
+        {%- for line in item.body -%}
+        <li>{{ line }}</li>
+        {%- endfor -%}
+      </ul>
+    </li>
+    {%- endfor -%}
+  </ul>
+</section>
+<hr>
