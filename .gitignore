@@ -15,8 +15,8 @@ scripts/precommit_error.log
 out.json
 
 # 別に公開しなくて良いスクリプト
-scripts/merge_json_template.rb
 scripts/check_keys.rb
+scripts/merge_json_template.rb
 
 # translations: 配布不要ファイルは無視
 translations/**/i18n/default.json
