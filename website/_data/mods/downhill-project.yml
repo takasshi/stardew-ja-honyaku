@@ -1,46 +1,53 @@
-slug: downhill-project
-title: "Downhill Project 翻訳ファイル"
-category: "expansion"
-status: "active"
+# --- slug（重要） ---
+slug: downhill-project # 小文字で書く（基本的には自動生成）
 
-original_name: "Downhill Project"
+# --- 基本情報 ---
+title: "downhill-project (ja)"
+category: expansion   # expansion / items / ui / dialogue / misc
+status: active   # active / retired / upcoming / hidden（自動生成時）
 
-mod_ver: "1.0.0"
-release_date: "2025-09-30"
+original_name: Downhill Project - Expanded Map for Custom NPCs  # 翻訳元MODの正式名称
+
+# --- メタ情報（auto_mods.ymlで出せないもの） ---
+mod_ver: "1.0.11"                 # （任意）
+release_date: "2024-07-10"  # ← 日付は必ずクォートで囲む
 
 source:
-  - name:
+  - name:    # 空欄の場合は Nexus Mods がデフォルト
 
 links:
-    url: "https://example.com/mod-a"
+  url: "https://www.nexusmods.com/stardewvalley/mods/32872"  # 参照URL
 
+# --- 概要・紹介 ---
+summary: |  # 一覧/個別ページ上部のキャッチコピー
+  エリアや雰囲気テキストを含む拡張系MOD向け翻訳です。
 
-summary: |
-  新エリアや雰囲気テキストを含む拡張系MOD向け翻訳です。
-note: "この翻訳はxTranslatorで作成されています。ゲーム内の言語を日本語に設定してください。"
+note: | # インストールフォルダが特殊な場合など（任意）前提MODなどもここに書く？
+  この翻訳はxTranslatorで作成されています。ゲーム内の言語を日本語に設定してください。
 
-description: |
-  看板・掲示・環境メッセージなどの雰囲気テキストの語調・文体を調整し、世界観を損なわない自然な日本語に整えました。
-
+# --- アイキャッチ画像（任意） ---
 hero:
   image:
-  caption: 
+  caption:
 
-features:
-  - "新エリアの雰囲気テキストをローカライズ。"
-  - "注意書き・標識などの短文も自然な表現に最適化。"
-  - "将来的な追加にも対応しやすいキー整理。"
+# --- 詳細説明（長文セクション） ---
+description: |  # 少し長めの説明。
+  看板・掲示・環境メッセージなどの雰囲気テキストの語調・文体を調整し、世界観を損なわない自然な日本語に整えました。
 
-install-warning: |
+
+features:       # MODのおすすめポイントを箇条書き
+  - 新エリアの雰囲気テキストをローカライズ。
+  - 注意書き・標識などの短文も自然な表現に最適化。
+  - 将来的な追加にも対応しやすいキー整理。
+
+install-warning: |  # MOD内の注意書き（翻訳に関する注意を書いてもOK）
   この翻訳は MOD 本体 (Downhill Project) と **Content Patcher** が必要です。
 
-policy: |
+policy: |  # 翻訳の方針やクセなど
   - 固有名詞は公式翻訳に準拠  
   - 看板・標識は視認性重視の簡潔訳
 
-install-notes: |
-  ファイルは `[Downhill Project]/i18n/` に配置してください。
-
+# --- 更新履歴 日付は必ずクォートで囲む ---
 changelog:
   - version: "v1.0.0"
     date: "2025-09-30"

@@ -1,49 +1,52 @@
+# --- slug（重要） ---
+slug: letters-from-cameron # 小文字で書く（基本的には自動生成）
+
 # --- 基本情報 ---
-slug: letters-from-cameron
-title: "Letters From Cameron (ja)"
-category: "dialogue" 
-status: "active"
+title: "Letters From Cameron(ja)"
+category: dialogue   # expansion / items / ui / dialogue / misc
+status: active  # active / retired / upcoming / hidden（自動生成時）
 
-original_name: "Letters From Cameron"
+original_name: Letters From Cameron  # 翻訳元MODの正式名称
 
-# --- バージョン情報 ---
-mod_ver: "1.0.1"
-release_date: "2025-09-25"
+# --- メタ情報（auto_mods.ymlで出せないもの） ---
+mod_ver: "1.0.1"                 # （任意）
+release_date: "2024-07-10"  # ← 日付は必ずクォートで囲む
 
 source:
-  - name: 
+  - name:    # 空欄の場合は Nexus Mods がデフォルト
 
 links:
-    url: "https://www.nexusmods.com/stardewvalley/mods/35474"
+  url: "https://www.nexusmods.com/stardewvalley/mods/35474"  # 参照URL
 
 # --- 概要・紹介 ---
-summary: |
-  あなたの元同僚、キャメロンから手紙が届きました…。
-  aaaa
+summary: |  # 一覧/個別ページ上部のキャッチコピー
+  なたの元同僚、キャメロンから手紙が届きました…。
 
-note: | 
-  たまに届く手紙を追加するMODです。 aaaa
+note: | # インストールフォルダが特殊な場合など（任意）前提MODなどもここに書く？
+  たまに届く手紙を追加するMODです。
 
-description: |
-  Joja時代の同僚（自称親友）から届く手紙を追加するMODです。前提MOD：Mail Framework Mod
-
+# --- アイキャッチ画像（任意） ---
 hero:
-  image: 
-  caption: 
+  image:
+  caption:
 
 # --- 詳細説明（長文セクション） ---
-features:
-  - "主人公が辞めたあとのJojaの雰囲気を感じられます。闇深い…。"
-  - "ストーリー仕立てで最後はちょっとしんみりできるような手紙を追加します。"
+description: |  # 少し長めの説明。
+  Joja時代の同僚（自称親友）から届く手紙を追加するMODです。
+  前提MOD：Mail Framework Mod
 
-install-warning: |
+features:       # MODのおすすめポイントを箇条書き
+  - 主人公が辞めたあとのJojaの雰囲気を感じられます。闇深い…。
+  - ストーリー仕立てで最後はちょっとしんみりできるような手紙を追加します。
+
+install-warning: |  # MOD内の注意書き（翻訳に関する注意を書いてもOK）
   ⚠ 軽微な薬物依存描写があります。
 
-policy: |
+policy: |  # 翻訳の方針やクセなど
   - Bestie（＝親友）は「ベスティ」と翻訳（主人公と噛み合わない雰囲気）。
   - そんなに親しくなかったのにちょっと鬱陶しい手紙💌を送ってくる元同僚を表現しました。
 
-# --- 更新履歴 ---
+# --- 更新履歴 日付は必ずクォートで囲む ---
 changelog:
   - version: "v1.0.1 -translation"
     date: "2025-10-19"
