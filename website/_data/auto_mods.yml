@@ -2,14 +2,14 @@
 bank:
   slug: bank
   path: translations/bank/i18n/ja.json
-  updated: '2025-10-26'
+  updated: '2025-10-28'
   size_kb: 3.9
   sha256_8: 600c6417
   keys_count: 62
 bear-family:
   slug: bear-family
   path: translations/bear-family/i18n/ja.json
-  updated: '2025-10-25'
+  updated: '2025-10-28'
   size_kb: 1610.4
   sha256_8: 656695a6
   keys_count: 10408
@@ -23,16 +23,16 @@ deluxejournal:
 downhill-project:
   slug: downhill-project
   path: translations/downhill-project/i18n/ja.json
-  updated: '2025-10-25'
+  updated: '2025-10-28'
   size_kb: 80.8
   sha256_8: cd1d845b
   keys_count: 521
 eli-and-dylan:
   slug: eli-and-dylan
   path: translations/eli-and-dylan/i18n/ja.json
-  updated: '2025-10-12'
-  size_kb: 562.3
-  sha256_8: 10afd68f
+  updated: '2025-10-28'
+  size_kb: 565.7
+  sha256_8: fdd14fc9
   keys_count: 2879
 fievel-goes-east-scarp:
   slug: fievel-goes-east-scarp
@@ -44,49 +44,49 @@ fievel-goes-east-scarp:
 food-safety-channel:
   slug: food-safety-channel
   path: translations/food-safety-channel/i18n/ja.json
-  updated: '2025-10-26'
+  updated: '2025-10-28'
   size_kb: 6.0
   sha256_8: 83dde51a
   keys_count: 28
 hisames-gardening-channel:
   slug: hisames-gardening-channel
   path: translations/hisames-gardening-channel/i18n/ja.json
-  updated: '2025-09-28'
+  updated: '2025-10-28'
   size_kb: 5.5
   sha256_8: fabcb4fb
   keys_count: 30
 letters-from-cameron:
   slug: letters-from-cameron
   path: translations/letters-from-cameron/i18n/ja.json
-  updated: '2025-10-11'
+  updated: '2025-10-28'
   size_kb: 18.7
   sha256_8: 43c9e901
   keys_count: 102
 lumisteria-serene-meadow:
   slug: lumisteria-serene-meadow
   path: translations/lumisteria-serene-meadow/i18n/ja.json
-  updated: '2025-10-26'
+  updated: '2025-10-28'
   size_kb: 32.7
   sha256_8: 8d0bccf3
   keys_count: 264
 moreseedinfo:
   slug: moreseedinfo
   path: translations/moreseedinfo/i18n/ja.json
-  updated: '2025-10-26'
+  updated: '2025-10-28'
   size_kb: 2.4
-  sha256_8: eee8ba38
+  sha256_8: 2572c79b
   keys_count: 47
 ranger-taro:
   slug: ranger-taro
   path: translations/ranger-taro/i18n/ja.json
-  updated: '2025-10-23'
-  size_kb: 38.8
-  sha256_8: 9913ddd7
+  updated: '2025-10-28'
+  size_kb: 39.0
+  sha256_8: 54f43f4d
   keys_count: 234
 wildflours-atelier-goods:
   slug: wildflours-atelier-goods
   path: translations/wildflours-atelier-goods/i18n/ja.json
-  updated: '2025-10-03'
+  updated: '2025-10-28'
   size_kb: 269.9
   sha256_8: 7801f0ed
   keys_count: 2389

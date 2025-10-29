@@ -3,7 +3,7 @@ slug: food-safety-channel # 小文字で書く（基本的には自動生成）
 
 # --- 基本情報 ---
 title: "food-safety-channel  (ja)"
-category: misc   # expansion / items / ui / dialogue / misc
+category: dialogue   # expansion / items / ui / dialogue / misc
 status: hidden   # active / retired / upcoming / hidden（自動生成時）
 
 original_name:   # 翻訳元MODの正式名称
