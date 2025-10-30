@@ -2,21 +2,21 @@
 slug: ranger-taro # 小文字で書く（基本的には自動生成）
 
 # --- 基本情報 ---
-title: "ranger-taro  (ja)"
+title: "Ranger Taro - Custom NPC (ja)"
 category: expansion   # expansion / items / ui / dialogue / misc
-status: hidden   # active / retired / upcoming / hidden（自動生成時）
+status: active   # active / retired / upcoming / hidden（自動生成時）
 
-original_name:   # 翻訳元MODの正式名称
+original_name: Ranger Taro - Custom NPC  # 翻訳元MODの正式名称
 
 # --- メタ情報（auto_mods.ymlで出せないもの） ---
-mod_ver: ""                 # （任意）
+mod_ver: "2.5"                 # （任意）
 release_date: "2024-07-10"  # ← 日付は必ずクォートで囲む
 
 source:
   - name:    # 空欄の場合は Nexus Mods がデフォルト
 
 links:
-  url: "https://www.google.com/"  # 参照URL
+  url: "https://www.nexusmods.com/stardewvalley/mods/30445"  # 参照URL
 
 # --- 概要・紹介 ---
 summary: |  # 一覧/個別ページ上部のキャッチコピー

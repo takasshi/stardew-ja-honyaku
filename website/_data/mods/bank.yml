@@ -2,7 +2,7 @@
 slug: bank # 小文字で書く（基本的には自動生成）
 
 # --- 基本情報 ---
-title: "bank  (ja)"
+title: "Bank (ja)"
 category: misc   # expansion / items / ui / dialogue / misc
 status: active   # active / retired / upcoming / hidden（自動生成時）
 
@@ -20,10 +20,10 @@ links:
 
 # --- 概要・紹介 ---
 summary: |  # 一覧/個別ページ上部のキャッチコピー
-  夜の浜辺で拾った小瓶の中には、見知らぬ誰かからの手紙が入っていました…。
+  診療所の隣にキャッシュコーナーがオープンしました！貯金と引き出しが可能に。ローンにも対応しています🪙
 
 note: | # インストールフォルダが特殊な場合など（任意）前提MODなどもここに書く？
-  浜辺に新しいイベントとメッセージを追加する小規模MOD。※実在しないMODです。
+  ファイルはBank/i18n/ に配置してください。
 
 # --- アイキャッチ画像（任意） ---
 hero:
