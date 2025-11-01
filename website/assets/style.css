@@ -6,7 +6,6 @@
     --main-color: #00A3C9;
     --main-color-dark: #00819e;
     --light-bg: #e0f7fa;
-    /* 青系の薄い背景色 */
     /* ベース色 */
     --text-color: #333;
     --light-text-color: #555;
@@ -17,9 +16,7 @@
     --gray-light: #ccc;
     --gray-x-light: #eee;
     --note-color-dark: #004d60;
-    /* MOD補足のstrong用 */
     --note-color-light: #666;
-    /* 小さな注釈用 */
     /* 更新停止カード全体で使うミュートカラー */
     --card-muted-text: #999;
     /* ヘッダーの高さ */
@@ -78,7 +75,6 @@ hr {
 /* ===================================== */
 strong {
     font-weight: bold;
-    /* 下半分だけに淡い色を入れるマーカー風 */
     background: linear-gradient(transparent 60%, var(--light-bg) 0%);
     padding: 0 2px;
     line-height: 1.8;
@@ -156,13 +152,11 @@ header h1 {
 /* ===================================== */
 /* 5. アンカーリンク（固定ヘッダー対策） */
 /* ===================================== */
-/* position: sticky を使用してもズレる場合があるため、scroll-margin-topで強制的に位置を調整 */
 #download,
 #how-to,
 #changelog,
 #notes,
 .group-heading {
-    /* CSS変数を使ってヘッダーの高さ分、下のコンテンツをずらす */
     scroll-margin-top: var(--fixed-header-height);
 }
 /* ===================================== */
@@ -296,6 +290,24 @@ header h1 {
     font-size: 0.9em;
     color: #777;
 }
+/* 前提modをタグっぽく表示 */
+.requires a {
+  display: inline-block;
+  background: var(--light-bg);
+  border: 1px solid var(--main-color);
+  border-radius: 9999px;
+  padding: 0.15em 0.6em;
+  font-size: 0.9em;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 0 0.15em;
+  transition: background 0.2s, color 0.2s;
+}
+.requires a:hover {
+  background: var(--main-color);
+  color: #fff; 
+}
+
 /* ダウンロードボタン */
 .download-btn {
     display: inline-block;
@@ -439,7 +451,6 @@ header h1 {
     list-style: none;
     padding: 0;  
 }
-
 .changelog-list::-webkit-scrollbar {
     width: 8px;
 }
@@ -450,13 +461,11 @@ header h1 {
 .changelog-list::-webkit-scrollbar-thumb:hover {
     background: #999;
 }
-
 .changelog-list li {
     border-left: 3px solid var(--main-color);
     padding-left: 15px;
     margin-bottom: 15px;
 }
-
 .changelog-list li ul {
     list-style-type: disc;
     padding-left: 20px;
@@ -464,14 +473,12 @@ header h1 {
     font-size: 0.95em;
     color: var(--light-text-color);
 }
-
 .changelog-list li ul li {
     border-left: none;
     padding-left: 0;
     margin-bottom: 5px;
     line-height: 1.4;
 }
-
 .changelog-list li > strong {
     display: inline-block;
 }
@@ -480,9 +487,7 @@ header h1 {
 /* 10. お願いと注意事項セクション */
 /* ===================================== */
 #notes {
-    /* PC表示時: セクション全体を他のコンテンツより小さくする設定 */
     font-size: 0.95em;
-    /* モバイルの右寄り対策のため、このセクション自体に左右パディングはつけない */
     padding-left: 0;
     padding-right: 0;
 }
@@ -492,7 +497,6 @@ header h1 {
   padding-right: 0;
   margin: 0; 
 }
-
 #notes ul li {
   margin: 0;
   padding: 1em 0;
@@ -500,7 +504,6 @@ header h1 {
   font-size: 1em;
   border-top: 1px solid var(--notes-border, #ddd);
 }
-
 #notes ul li:first-child {
   border-top: 0;
   padding-top: 0;
@@ -537,17 +540,11 @@ footer {
 /* 12. 上に戻るボタン (Back-to-Top) */
 /* ===================================== */
 .back-to-top {
-    /* 固定位置設定 */
     position: fixed;
     bottom: 30px;
-    /* 画面下からの距離 */
     right: 30px;
-    /* 画面右からの距離 */
     z-index: 1000;
-    /* 他の要素より手前に表示 */
-    /* デザイン */
     background-color: var(--main-color-dark);
-    /* メインカラーの濃い色 */
     color: white;
     padding: 10px 15px;
     border-radius: 5px;
@@ -557,9 +554,7 @@ footer {
     font-weight: bold;
     cursor: pointer;
     opacity: 0.8;
-    /* デフォルトで少し透過 */
     transition: opacity 0.3s, background-color 0.3s;
-    /* ホバー時のアニメーション */
 }
 .back-to-top:hover {
     opacity: 1.0;
@@ -572,7 +567,6 @@ footer {
 .mod-detail-hero {
     padding: 30px 0 50px;
     border-bottom: 3px solid var(--gray-x-light);
-    /* セクション間の強い区切り */
     margin-bottom: 40px;
 }
 .mod-detail-hero h2 {
@@ -580,28 +574,21 @@ footer {
     color: var(--main-color-dark);
     margin-bottom: 10px;
     border-bottom: none;
-    /* メイン見出しでは下線を使わない */
 }
 /* --- 画像表示用スタイル --- */
 /* 画像コンテナ */
 .mod-image-container {
     text-align: center;
-    /* 画像とキャプションを中央寄せ */
     margin: 40px 0;
-    /* 上下の余白 */
 }
 /* メイン画像 */
 .mod-main-image {
     max-width: 100%;
-    /* 親要素の幅を超えないようにする */
     height: auto;
     display: block;
-    /* 中央寄せのためにブロック要素にする */
     margin: 0 auto;
     border-radius: 8px;
-    /* 角を丸くする */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    /* 軽い影をつける */
 }
 /* 画像キャプション */
 .image-caption {
@@ -611,10 +598,8 @@ footer {
     font-style: italic;
 }
 /* --- 詳細な説明文ブロック --- */
-/* 詳細な説明文のブロック */
 .long-description-block {
     line-height: 1.8;
-    /* 読みやすい行間 */
     font-size: 1.05em;
     color: var(--light-text-color);
 }
@@ -629,7 +614,6 @@ footer {
 /* 重要な注意点や警告用 */
 .warning-box {
     background-color: #fff3f3;
-    /* 警告に合わせた薄い赤背景 */
     border: 1px solid #f00;
     padding: 20px;
     border-radius: 6px;
@@ -688,21 +672,17 @@ footer {
         padding: 8px 12px;
         font-size: 0.8em;
     }
-    /* 🚨 注意事項セクションのモバイル表示を修正 */
     #notes {
         padding-left: 0;
         padding-right: 0;
     }
     #notes ul {
-        /* モバイルで画面端に張り付かないよう、左側に余白を付ける */
         padding-left: 35px;
-        /* マーカーとパディング分の十分な余白 */
         padding-right: 15px;
     }
     #notes .description,
     .notes-description-italic {
         padding-left: 15px;
-
         padding-right: 15px;
     }
 
