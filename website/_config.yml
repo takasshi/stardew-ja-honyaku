@@ -10,4 +10,6 @@ baseurl: "/stardew-ja-honyaku"
 # Markdownの安定化（任意：推奨）
 markdown: kramdown
 kramdown:
+  xhtml: false      # <br />, <img /> などを HTML5 形式に
+  hard_wrap: false  # 行末スペース2つ以外では <br> を作らない
   input: GFM

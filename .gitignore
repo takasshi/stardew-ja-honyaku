@@ -25,6 +25,9 @@ translations/**/i18n/default.json
 website/_data/mods/xxx-default.yml
 website/_data/mods/xxx-driftwood-letters-retired.yml
 website/_data/mods/xxx-silver-garden.yml
+translations/xxx-default
+translations/xxx-silver-garden
+translations/xxx-driftwood-letters-retired
 
 website/pages/mods/xxx-default.md
 
