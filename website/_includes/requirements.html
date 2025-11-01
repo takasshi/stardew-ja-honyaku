@@ -10,6 +10,6 @@
 {%- else -%}
 {{ meta.label | default: key }}
 {%- endif -%}
-{%- unless forloop.last -%},&nbsp;{%- endunless -%}
+{%- unless forloop.last -%}&nbsp;{%- endunless -%}
 {%- endfor -%}
 {%- endif -%}

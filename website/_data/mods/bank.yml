@@ -8,6 +8,10 @@ status: active   # active / retired / upcoming / hidden（自動生成時）
 
 original_name: Bank  # 翻訳元MODの正式名称
 
+requires:
+  - smapi
+  - cp
+
 # --- メタ情報（auto_mods.ymlで出せないもの） ---
 mod_ver: "0.0.4"                 # （任意）
 release_date: "2024-07-10"  # ← 日付は必ずクォートで囲む
@@ -22,7 +26,7 @@ links:
 summary: |  # 一覧/個別ページ上部のキャッチコピー
   診療所の隣にキャッシュコーナーがオープンしました！貯金と引き出しが可能に。ローンにも対応しています🪙
 
-note: | # インストールフォルダが特殊な場合など（任意）前提MODなどもここに書く？
+note: | # インストールフォルダが特殊な場合など（任意）
   ファイルはBank/i18n/ に配置してください。
 
 # --- アイキャッチ画像（任意） ---

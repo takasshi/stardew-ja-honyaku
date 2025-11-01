@@ -14,7 +14,7 @@
 <!-- ここからカード本体 -->
 {%- assign heading_id = 'mod-' | append: mod.slug -%}
 <article class="mod-group" aria-labelledby="{{ heading_id }}">
-  <div class="mod-card{% if st == 'retired' %} is-outdated{% endif %}{% if st == 'upcoming' %} is-upcoming{% endif %}" {% if st=='retired' %} aria-label="{{ mod.title }}（配布終了）" {% elsif st=='upcoming' %} aria-label="{{ mod.title }}（準備中）" {% else %} aria-label="{{ mod.title }}" {% endif %}>
+  <div class="mod-card{% if st == 'retired' %} is-outdated{% endif %}{% if st == 'upcoming' %} is-upcoming{% endif %}">
     <h4 id="{{ heading_id }}">
       {% if st == 'upcoming' %}準備中: {% endif %}
       {{ mod.title }}
@@ -54,28 +54,34 @@
       {% endif %}
 
     <div class="mod-info">
-      <span>
-        <strong>対応MOD Ver:</strong>
-        {%- if mod.mod_ver and mod.mod_ver | to_s | strip != "" -%}
-        {{ mod.mod_ver }}
-        {%- else -%}
-        ―
-        {%- endif -%}
-      </span>
+<ul class="mod-info-list">
+  <li>
+    <strong>対応MOD Ver:</strong>
+    {%- if mod.mod_ver and mod.mod_ver | to_s | strip != "" -%}
+    {{ mod.mod_ver }}
+    {%- else -%}
+    ―
+    {%- endif -%}
+  </li>
 
-      {%- assign slug = mod.slug -%}
-      {%- assign auto = site.data.auto_mods[slug] -%}
+  {%- assign slug = mod.slug -%}
+  {%- assign auto = site.data.auto_mods[slug] -%}
 
-      {%- if auto and auto.updated -%}
-      <span><strong>最終更新日:</strong> {{ auto.updated }}</span>
-      {%- endif -%}
+  {%- if auto and auto.updated -%}
+  <li><strong>最終更新日:</strong> {{ auto.updated }}</li>
+  {%- endif -%}
 
-      {%- if auto and auto.size_kb -%}
-      <span><strong>ファイルサイズ:</strong> {{ auto.size_kb | round: 1 }}KB</span>
-      {%- endif -%}
-{%- if mod.requires and mod.requires != empty -%}
-<span><strong>前提MOD:</strong> {% include requirements.html items=mod.requires %}</span>
-{%- endif -%}
+  {%- if auto and auto.size_kb -%}
+  <li><strong>ファイルサイズ:</strong> {{ auto.size_kb | round: 1 }}KB</li>
+  {%- endif -%}
+
+  {%- if mod.requires and mod.requires != empty -%}
+  <li class="requires">
+    <strong>前提MOD:</strong> {% include requirements.html items=mod.requires %}
+  </li>
+  {%- endif -%}
+</ul>
+
     </div>
 
     {%- unless st == "retired" or st == "upcoming" -%}
@@ -93,7 +99,7 @@
     {%- endunless -%}
 
     {% if mod.summary %}
-    <p class="note">{{ mod.summary | newline_to_br }}</p>
+    <p class="note">{{ mod.summary | newline_to_br | replace: '<br />', '<br>' }}</p>
     {% endif %}
 
     {% if mod.note %}

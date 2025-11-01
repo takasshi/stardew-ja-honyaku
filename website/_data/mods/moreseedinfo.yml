@@ -8,6 +8,10 @@ status: active   # active / retired / upcoming / hidden（自動生成時）
 
 original_name: More Seed Info  # 翻訳元MODの正式名称（任意）
 
+requires:
+  - smapi
+  - cp
+
 # --- メタ情報（auto_mods.ymlで出せないもの） ---
 mod_ver: "2.0.4"                 # 無記入OK
 release_date: "2024-07-10"  # ← 日付は必ずクォートで囲む
@@ -23,9 +27,6 @@ summary: |  # 一覧/個別ページ上部のキャッチコピー
   夜の浜辺で拾った小瓶の中には、見知らぬ誰かからの手紙が入っていました…。
 
 note: "ファイルは `[Driftwood Letters]/i18n/` に配置してください。"  # 一覧ページの青いブロック（無記入OK）
-
-description: |  # 前提MODなど、少し長めの説明
-
 
 # --- アイキャッチ画像（任意） ---
 hero:

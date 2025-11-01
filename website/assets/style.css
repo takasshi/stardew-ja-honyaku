@@ -283,12 +283,26 @@ header h1 {
     border-bottom: 1px dashed var(--gray-x-light);
     padding-bottom: 10px;
 }
+/* mod情報 */
 .mod-info {
     display: flex;
     gap: 30px;
     margin-bottom: 15px;
     font-size: 0.9em;
-    color: #777;
+    color: var(--light-text-color);
+}
+.mod-info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 0.5em 1.7em; 
+}
+.mod-info-list li {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap; 
 }
 /* 前提modをタグっぽく表示 */
 .requires a {
@@ -644,9 +658,18 @@ footer {
     .u-only-sp {
         display: block;
     }
+    /* mod情報 */
     .mod-info {
         flex-direction: column;
         gap: 5px;
+    }
+    .mod-info-list {
+    display: block;
+    }
+    .mod-info-list li {
+    display: block;
+    margin-bottom: 0.4em;
+    white-space: normal;
     }
     .original-mod-link-inline {
         flex-direction: column;
