@@ -24,7 +24,7 @@ layout: default
   {% if mod.summary %}
   <p class="description">{{ mod.summary | newline_to_br }}</p>
   {% endif %}
-  
+
   {%- comment -%} ダウンロードリンク ────────────────────────{%- endcomment -%}
   {%- assign dl_href = mod.download.url
   | default: 'translations/' | append: mod.slug | append: '/i18n/ja.json' | relative_url -%}
@@ -67,8 +67,8 @@ layout: default
         {% else %}
         Nexus Mods
         {% endif %}
-        </p>
-        </div>
+      </p>
+      </div>
     {% if mod.links and mod.links.url %}
     <a href="{{ mod.links.url }}" target="_blank" rel="noopener" class="mod-link-btn" aria-label="MOD本体サイトへ移動（新しいタブで開きます）">
       {{ mod.links.label | default: "MOD本体サイトへ移動" }}
@@ -81,8 +81,8 @@ layout: default
 <section id="long-description" class="section-block">
   <h2>MODの詳細 <span aria-hidden="true">ℹ️</span></h2>
   <div class="long-description-block">
-{% assign desc = mod.description | strip %}
-{% if desc != '' %}
+    {% assign desc = mod.description | strip %}
+    {% if desc != '' %}
     {{ desc | markdownify }}
     {% endif %}
 

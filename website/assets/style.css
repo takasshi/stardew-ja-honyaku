@@ -197,9 +197,6 @@ header h1 {
 .section-block h2 {
     font-size: 1.7em;
     color: var(--main-color);
-    border-bottom: 3px solid var(--main-color);
-    padding-bottom: 8px;
-    margin-bottom: 35px;
 }
 .description {
     font-size: 1.0em;
@@ -245,6 +242,48 @@ header h1 {
     border-radius: 6px;
     font-weight: bold;
 }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+    border-bottom: 3px solid var(--main-color);
+    padding-bottom: 8px;
+    margin-bottom: 35px;
+}
+
+.view-toggle-btn {
+  all: unset; /* デフォルトのボタンスタイルを完全にリセット */
+  display: inline;
+  color: var(--main-color-dark);
+  font: inherit;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: color 0.25s ease, opacity 0.25s ease, text-decoration-color 0.25s ease;
+  text-decoration: none;
+  text-decoration-color: transparent;
+}
+
+.view-toggle-btn:hover,
+.view-toggle-btn:focus {
+  color: var(--main-color);
+  text-decoration: underline;
+  text-decoration-color: var(--main-color);
+  opacity: 0.9;
+}
+
+.view-toggle-btn:active {
+  opacity: 0.7;
+}
+
+/* キーボードフォーカス時の控えめな可視化 */
+.view-toggle-btn:focus-visible {
+  outline: none;
+  text-decoration: underline;
+  text-decoration-color: var(--main-color);
+}
+
+
 .group-nav__list {
   list-style: none;
   display: inline-flex;
@@ -304,6 +343,9 @@ header h1 {
   padding: 0;
   white-space: nowrap; 
 }
+
+
+
 /* 前提modをタグっぽく表示 */
 .requires a {
   display: inline-block;

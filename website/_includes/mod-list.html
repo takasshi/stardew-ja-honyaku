@@ -1,33 +1,27 @@
-<nav class="group-nav" aria-label="MODカテゴリナビゲーション">
-    <ul class="group-nav__list">
-        {%- for c in site.data.categories -%}
-        <li class="group-nav__item">
-            <a href="#{{ c.id }}">{{ c.label }}</a>
-        </li>
-        {%- endfor -%}
-    </ul>
-</nav>
+<ul class="simple-mod-list" role="list">
+    {%- for pair in site.data.mods -%}
+    {%- assign slug = pair[0] -%}
+    {%- assign mod = pair[1] -%}
+    {%- assign auto_mods = site.data.auto_mods | default: {} -%}
+    {%- assign auto = auto_mods[slug] | default: {} -%}
+    
+    {%- assign st = mod.status | to_s | strip | downcase -%}
+    {%- unless st == "hidden" -%}
 
+    {%- if mod.download and mod.download.url -%}
+    {%- assign dl_href = mod.download.url -%}
+    {%- else -%}
+    {%- assign dl_href = 'translations/' | append: slug | append: '/i18n/ja.json' | relative_url -%}
+    {%- endif -%}
+<li class="mod-row">
+    <span class="mod-name">
+        <a href="{{ dl_href }}" download>{{ mod.title | default: mod.name | default: slug }}</a>
+    </span>
+    <span class="mod-cat">{{ mod.category | default: "―" }}</span>
+    <span class="mod-updated" aria-label="最終更新日">{{ auto.updated | default: "―" }}</span>
+</li>
+
+{%- endunless -%}
+    {%- endfor -%}
+</ul>
 <hr class="nav-divider">
-
-{%- for c in site.data.categories -%}
-<h3 id="{{ c.id }}" class="group-heading">{{ c.label }} MOD</h3>
-<p class="back-to-download"><a href="#download">↑ ダウンロードリンクに戻る</a></p>
-
-{%- for pair in site.data.mods -%}
-{%- assign mod = pair[1] -%}
-{%- if mod.category == c.id -%}
-{%- assign detail_page = site.pages
-| where: "layout", "mod-detail"
-| where: "slug", mod.slug
-| first -%}
-{%- assign has_detail = detail_page and detail_page.published != false -%}
-
-{%- include mod-card.html
-mod=mod
-has_detail=has_detail
-detail_page=detail_page
-category_anchor=c.id -%}
-{%- endif -%}
-{%- endfor -%}
-{%- endfor -%}

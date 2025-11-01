@@ -1,0 +1,33 @@
+<nav class="group-nav" aria-label="MODカテゴリナビゲーション">
+    <ul class="group-nav__list">
+        {%- for c in site.data.categories -%}
+        <li class="group-nav__item">
+            <a href="#{{ c.id }}">{{ c.label }}</a>
+        </li>
+        {%- endfor -%}
+
+    </ul>
+</nav>
+
+<hr class="nav-divider">
+{%- for c in site.data.categories -%}
+<h3 id="{{ c.id }}" class="group-heading">{{ c.label }} MOD</h3>
+<p class="back-to-download"><a href="#download">↑ ダウンロードリンクに戻る</a></p>
+
+{%- for pair in site.data.mods -%}
+{%- assign mod = pair[1] -%}
+{%- if mod.category == c.id -%}
+{%- assign detail_page = site.pages
+| where: "layout", "mod-detail"
+| where: "slug", mod.slug
+| first -%}
+{%- assign has_detail = detail_page and detail_page.published != false -%}
+
+{%- include mod-card.html
+mod=mod
+has_detail=has_detail
+detail_page=detail_page
+category_anchor=c.id -%}
+{%- endif -%}
+{%- endfor -%}
+{%- endfor -%}

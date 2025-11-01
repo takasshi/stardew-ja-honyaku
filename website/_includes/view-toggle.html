@@ -1,0 +1,42 @@
+
+
+<button id="view-toggle"
+  class="view-toggle-btn"
+  aria-pressed="false"
+  data-default="{{ include.default_view | default: 'card' }}">
+  📋 リスト表示
+</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const button = document.getElementById('view-toggle');
+  const cards = document.getElementById('cards-view');
+  const list  = document.getElementById('list-view');
+  if (!button || !cards || !list) return;
+
+  // --- 初期状態 ---
+  const saved = localStorage.getItem('view-mode');
+  const defaultView = button.dataset.default;
+  let current = saved || defaultView || 'card';
+  updateView(current);
+
+  // --- ボタン押下時 ---
+  button.addEventListener('click', () => {
+    current = current === 'card' ? 'list' : 'card';
+    localStorage.setItem('view-mode', current);
+    updateView(current);
+  });
+
+  // --- 状態更新関数 ---
+  function updateView(mode) {
+    const isList = mode === 'list';
+    cards.hidden = isList;
+    list.hidden  = !isList;
+
+    button.setAttribute('aria-pressed', isList ? 'true' : 'false');
+    button.innerHTML = isList
+      ? '🗂 カード表示'
+      : '📋 リスト表示';
+  }
+});
+</script>
