@@ -1,5 +1,9 @@
 ---
 mods:
+  bank:
+    pct: 100.0
+    done: 54
+    total: 54
   bear-family:
     pct: 6.4
     done: 670
@@ -20,14 +24,6 @@ mods:
     pct: 81.9
     done: 145
     total: 177
-  food-safety-channel:
-    pct: 96.4
-    done: 27
-    total: 28
-  hisames-gardening-channel:
-    pct: 100.0
-    done: 30
-    total: 30
   letters-from-cameron:
     pct: 100.0
     done: 102
@@ -40,7 +36,11 @@ mods:
     pct: 59.0
     done: 46
     total: 78
-  wildflours-atelier-goods:
-    pct: 67.0
-    done: 1600
-    total: 2389
+  world-navigator:
+    pct: 96.8
+    done: 276
+    total: 285
+  xxx-default:
+    pct: 100.0
+    done: 10
+    total: 10

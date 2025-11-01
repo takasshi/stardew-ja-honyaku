@@ -1,5 +1,5 @@
 ---
-- date: '2025-10-30'
+- date: '2025-11-01'
   sha: STAGED
   by: local
   items:
@@ -35,6 +35,14 @@
     path: translations/deluxejournal/i18n/ja.json
   - slug: moreseedinfo
     path: translations/moreseedinfo/i18n/ja.json
+  - slug: world-navigator
+    path: translations/world-navigator/i18n/ja.json
+  - slug: xxx-default
+    path: translations/xxx-default/i18n/ja.json
+  - slug: xxx-driftwood-letters-retired
+    path: translations/xxx-driftwood-letters-retired/i18n/ja.json
+  - slug: xxx-silver-garden
+    path: translations/xxx-silver-garden/i18n/ja.json
 - date: '2025-10-24'
   sha: 5d5d2d4
   by: local

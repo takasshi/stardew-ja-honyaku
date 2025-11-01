@@ -4,8 +4,19 @@ title: stardew-ja-honyaku
 ---
 {% include intro.html %}
 <section id="download" class="section-block" aria-labelledby="heading-download">
-  <h2 id="heading-download">ダウンロードリンク 💾</h2>
-  {% include mod-list.html %}
+  <div class="section-header" role="group" aria-labelledby="heading-download">
+    <h2 id="heading-download" class="section-title">ダウンロードリンク 💾</h2>
+    {%- include view-toggle.html default_view="card" -%}
+  </div>
+  
+  <div id="cards-view">
+    {%- include mod-section.html -%}
+  </div>
+  
+  <div id="list-view" hidden>
+    {%- include mod-list.html -%}
+  </div>
+
 </section>
 {% include howto.html %}
 {% include changelog.html %}

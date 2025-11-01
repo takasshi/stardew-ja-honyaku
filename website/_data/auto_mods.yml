@@ -90,23 +90,16 @@ wildflours-atelier-goods:
   size_kb: 269.9
   sha256_8: 7801f0ed
   keys_count: 2389
+world-navigator:
+  slug: world-navigator
+  path: translations/world-navigator/i18n/ja.json
+  updated: '2025-10-05'
+  size_kb: 31.3
+  sha256_8: '04592c13'
+  keys_count: 285
 xxx-default:
   slug: xxx-default
   path: translations/xxx-default/i18n/ja.json
-  updated: '2025-11-01'
-  size_kb: 0.6
-  sha256_8: db4b278e
-  keys_count: 10
-xxx-driftwood-letters-retired:
-  slug: xxx-driftwood-letters-retired
-  path: translations/xxx-driftwood-letters-retired/i18n/ja.json
-  updated: '2025-11-01'
-  size_kb: 0.6
-  sha256_8: db4b278e
-  keys_count: 10
-xxx-silver-garden:
-  slug: xxx-silver-garden
-  path: translations/xxx-silver-garden/i18n/ja.json
   updated: '2025-11-01'
   size_kb: 0.6
   sha256_8: db4b278e
