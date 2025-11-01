@@ -18,8 +18,8 @@ layout: default
 {%- assign auto = site.data.auto_mods[slug] -%}
 {%- assign p = site.data.auto_progress.mods[slug] | default: auto.progress -%}
 
-<section class="mod-detail-hero">
-  <h2>{{ mod.title }}</h2>
+<section class="mod-detail-hero" aria-labelledby="heading-modtitle">
+  <h2 id="heading-modtitle">{{ mod.title }}</h2>
 
   {% if mod.summary %}
   <p class="description">{{ mod.summary | newline_to_br }}</p>
@@ -29,7 +29,7 @@ layout: default
   {%- assign dl_href = mod.download.url
   | default: 'translations/' | append: mod.slug | append: '/i18n/ja.json' | relative_url -%}
   <a href="{{ dl_href }}" class="download-btn" target="_blank" rel="noopener" download>
-    📥 ファイルをダウンロード
+    <span aria-hidden="true">📥</span> ファイルをダウンロード
     {% assign ver = mod.mod_ver | to_s | strip %}
     {% if ver != blank %}（v{{ ver }}）{% endif %}
   </a>
@@ -57,7 +57,7 @@ layout: default
   {% if mod.source or mod.links %}
   <div class="original-mod-link-inline" style="margin-top:20px;">
     <div class="card-content-inline">
-      <h4>{{ mod.original_name }}</h4>
+      <h3>{{ mod.original_name }}</h3>
       <p class="card-source-inline">
         配布元:
         {% if mod.source and mod.source != empty %}
@@ -70,7 +70,7 @@ layout: default
         </p>
         </div>
     {% if mod.links and mod.links.url %}
-    <a href="{{ mod.links.url }}" target="_blank" rel="noopener" class="mod-link-btn">
+    <a href="{{ mod.links.url }}" target="_blank" rel="noopener" class="mod-link-btn" aria-label="MOD本体サイトへ移動（新しいタブで開きます）">
       {{ mod.links.label | default: "MOD本体サイトへ移動" }}
     </a>
     {% endif %}
@@ -79,7 +79,7 @@ layout: default
 </section>
 
 <section id="long-description" class="section-block">
-  <h2>MODの詳細 ℹ️</h2>
+  <h2>MODの詳細 <span aria-hidden="true">ℹ️</span></h2>
   <div class="long-description-block">
 {% assign desc = mod.description | strip %}
 {% if desc != '' %}
@@ -89,12 +89,12 @@ layout: default
     {% assign warn = mod['install-warning'] | strip %}
     {% if warn != '' %}
     <div class="warning-box">
-      <p>{{ warn | markdownify }}</p>
+      {{ warn | markdownify }}
     </div>
     {% endif %}
 
     {% if mod.features and mod.features.size > 0 %}
-    <h3>👍おすすめポイント</h3>
+    <h3><span aria-hidden="true">👍</span> おすすめポイント</h3>
     <ul>
       {% for feature in mod.features %}
       {% assign text = feature | strip %}
@@ -107,13 +107,13 @@ layout: default
 
     {% assign policy = mod.policy | strip %}
     {% if policy != '' %}
-    <h3>📖 翻訳の方針</h3>
+    <h3><span aria-hidden="true">📖</span> 翻訳の方針</h3>
     {{ policy | markdownify }}
     {% endif %}
 
     {% assign note = mod['note'] | strip %}
     {% if note != '' %}
-    <h3>⚙️ インストールについて</h3>
+    <h3><span aria-hidden="true">⚙️</span> インストールについて</h3>
     <p>基本的な導入手順はトップページの「導入方法」セクションをご覧ください。</p>
     <p class="mod-supplement">{{ note | markdownify | strip_html }}</p>
     {% endif %}
@@ -121,12 +121,13 @@ layout: default
 </section>
 
 <section id="detail-changelog" class="section-block">
-  <h2>変更履歴 📜</h2>
+  <h2>変更履歴 <span aria-hidden="true">📜</span></h2>
   {% if mod.changelog %}
   <ul class="changelog-list">
     {% for log in mod.changelog %}
     <li>
-      {{ log.date }} <strong>{{ log.version }}</strong>
+      <time datetime="{{ log.date | date: '%Y-%m-%d' }}">{{ log.date | date: '%Y-%m-%d' }}</time>
+      <strong>{{ log.version }}</strong>
       {% if log.body %}
       <div class="changelog-body">{{ log.body | markdownify }}</div>
       {% endif %}

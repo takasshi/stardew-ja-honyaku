@@ -12,9 +12,10 @@
 {%- endif -%}
 
 <!-- ここからカード本体 -->
-<article class="mod-group">
+{%- assign heading_id = 'mod-' | append: mod.slug -%}
+<article class="mod-group" aria-labelledby="{{ heading_id }}">
   <div class="mod-card{% if st == 'retired' %} is-outdated{% endif %}{% if st == 'upcoming' %} is-upcoming{% endif %}" {% if st=='retired' %} aria-label="{{ mod.title }}（配布終了）" {% elsif st=='upcoming' %} aria-label="{{ mod.title }}（準備中）" {% else %} aria-label="{{ mod.title }}" {% endif %}>
-    <h4>
+    <h4 id="{{ heading_id }}">
       {% if st == 'upcoming' %}準備中: {% endif %}
       {{ mod.title }}
     </h4>
@@ -84,7 +85,7 @@
     | append: '/i18n/ja.json'
     | relative_url -%}
     <a href="{{ dl_href }}" class="download-btn" target="_blank" rel="noopener" role="button" download>
-      📥 ファイルをダウンロード
+      <span aria-hidden="true">📥</span> ファイルをダウンロード
       {% if mod.mod_ver and mod.mod_ver | strip != "" %}
       （v{{ mod.mod_ver }}）
       {% endif %}

@@ -1,8 +1,13 @@
 <nav class="group-nav" aria-label="MODカテゴリナビゲーション">
-    {%- for c in site.data.categories -%}
-    <a href="#{{ c.id }}">{{ c.label }}</a>{% unless forloop.last %} | {% endunless %}
-    {%- endfor -%}
+    <ul class="group-nav__list">
+        {%- for c in site.data.categories -%}
+        <li class="group-nav__item">
+            <a href="#{{ c.id }}">{{ c.label }}</a>
+        </li>
+        {%- endfor -%}
+    </ul>
 </nav>
+
 <hr class="nav-divider">
 
 {%- for c in site.data.categories -%}

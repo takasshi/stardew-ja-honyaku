@@ -33,13 +33,19 @@
 /* ===================================== */
 body {
     /* システムフォントスタックを適用 */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+font-family:
+  -apple-system, BlinkMacSystemFont,
+  "Hiragino Sans",  "Noto Sans JP",
+  "BIZ UDPGothic",
+  "Segoe UI", "Roboto", "Helvetica Neue", Arial,
+  sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
     background-color: var(--dark-bg);
     color: var(--text-color);
     font-size: 15px;
+     letter-spacing: 0;
 }
 .container {
     width: 90%;
@@ -240,19 +246,33 @@ header h1 {
     margin: 20px 0 30px 0;
     padding: 15px 0;
     background-color: #ffffff;
+    color: var(--main-color-dark);
     border: 1px solid var(--gray-x-light);
     border-radius: 6px;
-}
-.group-nav a {
     font-weight: bold;
-    font-size: 1.1em;
-    margin: 0 10px;
-    padding: 5px 8px;
-    white-space: nowrap;
 }
-.nav-divider {
-    margin: 40px 0;
+.group-nav__list {
+  list-style: none;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0; 
+  padding: 0;
+  margin: 0;
 }
+.group-nav__item {
+  display: flex;
+  align-items: center;
+}
+.group-nav__item + .group-nav__item::before {
+  content: " | ";
+  display: inline-block;
+  color: inherit;
+  font: inherit;
+  margin: 0 10px;
+}
+
 /* ダウンロードカード */
 .mod-card {
     background-color: #ffffff;
@@ -468,41 +488,39 @@ header h1 {
 }
 /* Notesセクション内の ul/li の調整 */
 #notes ul {
-    /* デフォルトのリストマーカー（黒丸）を維持 */
-    /* PC表示時: コンテンツ部分を中央に寄せているため、リストを左寄せで表示 */
-    padding-left: 20px;
-    /* マーカー分の標準パディングを確保 */
-    padding-right: 0;
+  padding-left: 20px;
+  padding-right: 0;
+  margin: 0; 
 }
+
 #notes ul li {
-    margin-bottom: 15px;
-    padding-left: 0;
-    line-height: 1.5;
-    font-size: 1em;
+  margin: 0;
+  padding: 1em 0;
+  line-height: 1.5;
+  font-size: 1em;
+  border-top: 1px solid var(--notes-border, #ddd);
 }
+
+#notes ul li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
 /* Notesセクション内の description と斜体の定義 */
 #notes .description,
 .notes-description-italic {
     font-size: 1em;
     font-style: italic;
-    /* notes-description-italic のみ斜体を適用 */
-    /* PC表示時: リスト項目と位置を合わせるため、標準のコンテナパディングのみ */
     padding-left: 0;
     padding-right: 0;
 }
-/* Notesセクション内の <hr> */
-#notes .notes-hr {
-    margin: 15px 0;
-    background-color: var(--gray-x-light);
-    /* PC表示時: リスト項目と位置を合わせるため、マージンは調整しない（ulのインデントに依存） */
-}
+
 /* Notesセクション内のMOD作者向け注釈 */
 #notes .author-note-small {
     margin-top: 5px;
     font-size: 0.9em;
     color: var(--note-color-light);
     font-style: italic;
-    /* Pタグはliの中でインデントされるため、個別のパディングは不要 */
 }
 /* ===================================== */
 /* 11. フッター */
@@ -684,12 +702,8 @@ footer {
     #notes .description,
     .notes-description-italic {
         padding-left: 15px;
-        /* リストと同じくらいの見やすい余白 */
+
         padding-right: 15px;
     }
-    #notes .notes-hr {
-        margin-left: 15px;
-        /* 区切り線もコンテンツと位置合わせ */
-        margin-right: 15px;
-    }
+
 }

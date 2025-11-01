@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title | default: site.title }}</title>
+{% assign mod_data = site.data.mods[page.slug] | default: nil %}
+{% assign base = site.title | default: "stardew-ja-honyaku" %}
+
+<title>
+  {% if page.title and page.title != base %}
+  {{ page.title }} | {{ base }}
+  {% elsif mod_data and mod_data.title %}
+  {{ mod_data.title }} | {{ base }}
+  {% else %}
+  {{ base }}
+  {% endif %}
+</title>
+
   <link rel="icon" href="{{ '/assets/favicon.ico' | relative_url }}" type="image/x-icon">
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/bar.css' | relative_url }}">
