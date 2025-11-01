@@ -3,7 +3,7 @@
         <a href="{{ '/' | relative_url }}">
             <h1>{{ site.title }} 🌾</h1>
         </a>
-        <nav class="sticky-nav">
+        <nav class="sticky-nav" aria-label="メインナビゲーション">
             <ul>
                 {%- if page.layout == "mod-detail" -%}
                 <li><a href="{{ '/' | relative_url }}">ダウンロードTOPへ 🏠</a></li>

@@ -1,0 +1,15 @@
+{%- assign items = include.items | default: include.ids -%}
+{%- if items and items != empty -%}
+{%- for id in items -%}
+{%- assign key = id | strip -%}
+{%- assign meta = site.data.requirements[key] -%}
+{%- if meta and meta.alias -%}{% assign meta = site.data.requirements[meta.alias] %}{%- endif -%}
+
+{%- if meta and meta.url -%}
+<a href="{{ meta.url }}" target="_blank" rel="noopener">{{ meta.label | default: key }}</a>
+{%- else -%}
+{{ meta.label | default: key }}
+{%- endif -%}
+{%- unless forloop.last -%},&nbsp;{%- endunless -%}
+{%- endfor -%}
+{%- endif -%}

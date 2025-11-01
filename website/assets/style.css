@@ -170,22 +170,16 @@ header h1 {
     margin: 0 auto 50px;
     border-radius: 8px;
     box-shadow: 0 4px 10px var(--shadow-color);
-    /* ✅ 追加・変更部分 */
-    text-align: left;
-    /* 本文を左寄せに */
     max-width: 720px;
-    /* 横幅を制限して中央配置 */
     line-height: 1.8;
-    /* 読みやすい行間 */
 }
 .welcome-title {
     text-align: center;
-    /* タイトルのみ中央寄せ */
     font-weight: bold;
     font-size: 1.4em;
     margin-bottom: 15px;
 }
-/* Welcomeブロック内のインラインスタイルを移行したクラス */
+
 .welcome-block .welcome-hr {
     margin: 15px 10%;
     border-color: var(--gray-light);
@@ -268,7 +262,7 @@ header h1 {
     margin-bottom: 15px;
     box-shadow: 0 4px 8px var(--shadow-color);
 }
-.mod-card h3 {
+.mod-card h4 {
     margin-top: 0;
     color: var(--text-color);
     font-size: 1.4em;
@@ -290,7 +284,6 @@ header h1 {
     padding: 12px 24px;
     border-radius: 5px;
     font-weight: bold;
-    text-transform: uppercase;
     margin-top: 15px;
     font-size: 1em;
     transition: background-color 0.2s;
@@ -423,8 +416,10 @@ header h1 {
     overflow-y: auto;
     padding-right: 10px;
     margin-top: 1em;
+    list-style: none;
+    padding: 0;  
 }
-/* スクロールバーの見た目を整える（任意） */
+
 .changelog-list::-webkit-scrollbar {
     width: 8px;
 }
@@ -435,45 +430,32 @@ header h1 {
 .changelog-list::-webkit-scrollbar-thumb:hover {
     background: #999;
 }
-/* 変更履歴リスト */
-.changelog-list {
-    list-style: none;
-    /* デフォルトの黒丸を非表示 */
-    padding: 0;
-}
+
 .changelog-list li {
     border-left: 3px solid var(--main-color);
-    /* 左側の青い線 */
     padding-left: 15px;
-    /* 線とテキストの間の余白 */
     margin-bottom: 15px;
-    /* 各項目の下の余白 */
 }
-/* ネストされたリスト（具体的な変更点）のスタイルを調整 */
+
 .changelog-list li ul {
     list-style-type: disc;
-    /* 黒丸（disc）を適用 */
     padding-left: 20px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 5px 0;
     font-size: 0.95em;
     color: var(--light-text-color);
 }
-/* バージョン表記（<li>直下のテキスト）に余計なマーカーが出ないようにする */
-.changelog-list li>strong {
-    display: inline-block;
-}
-/* ネストされたリストのli要素に余計なスタイルが継承されないようにリセット */
+
 .changelog-list li ul li {
     border-left: none;
-    /* 青い縦線を無効化 */
     padding-left: 0;
-    /* パディングをリセット */
     margin-bottom: 5px;
-    /* リスト項目の下マージンを調整 */
     line-height: 1.4;
-    /* 行間を狭くする */
 }
+
+.changelog-list li > strong {
+    display: inline-block;
+}
+
 /* ===================================== */
 /* 10. お願いと注意事項セクション */
 /* ===================================== */
