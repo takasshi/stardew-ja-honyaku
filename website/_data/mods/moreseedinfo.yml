@@ -6,7 +6,7 @@ title: "More Seed Info (ja)"
 category: ui   # expansion / items / ui / dialogue / misc
 status: active   # active / retired / upcoming / hidden（自動生成時）
 
-original_name:   # 翻訳元MODの正式名称（任意）
+original_name: More Seed Info  # 翻訳元MODの正式名称（任意）
 
 # --- メタ情報（auto_mods.ymlで出せないもの） ---
 mod_ver: "2.0.4"                 # 無記入OK
