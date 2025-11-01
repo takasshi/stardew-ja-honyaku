@@ -1,0 +1,10 @@
+smapi:
+  label: SMAPI
+  url: https://smapi.io
+
+content-patcher:
+  label: Content Patcher
+  url: https://www.nexusmods.com/stardewvalley/mods/1915
+
+cp:
+  alias: content-patcher

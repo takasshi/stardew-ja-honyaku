@@ -32,6 +32,10 @@ slugs.each do |slug|
 
     original_name:   # 翻訳元MODの正式名称
 
+    requires:   # requirements.yml の内容を参考にする
+      - smapi
+      - cp
+
     # --- メタ情報（auto_mods.ymlで出せないもの） ---
     mod_ver: ""                 # （任意）
     release_date: "2024-07-10"  # ← 日付は必ずクォートで囲む
